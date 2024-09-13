@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
   },
   icons: {
-    shortcut: "/r.png",
+    shortcut: "/r.jpg",
   },
 };
 const inter = Inter({
