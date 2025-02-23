@@ -4,15 +4,19 @@ import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { useState } from "react";
-import { FaAngular, FaBootstrap, FaGithub, FaGitlab, FaNodeJs, FaPhp, FaReact, FaWordpress } from "react-icons/fa";
+import { FaAngular, FaBootstrap, FaElementor, FaGithub, FaGitlab, FaNodeJs, FaPhp, FaReact, FaWix, FaWordpress } from "react-icons/fa";
 import { RiNextjsFill } from "react-icons/ri";
 import { IoLogoIonic } from "react-icons/io";
 import { DiCodeigniter, DiJqueryLogo, DiMongodb } from "react-icons/di"
 import { SiAwsamplify, SiCypress, SiJira, SiLodash, SiMysql, SiRedux, SiTypescript } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io5";
 import Particles from "../components/particles";
+import { Wix_Madefor_Display } from "@next/font/google";
 
 const technologies = [
+	{ name: 'Wix', icon: FaWix },
+	{ name: 'Wordpress', icon: FaWordpress },
+	{ name: 'Elementor', icon: FaElementor },
 	{ name: 'Angular', icon: FaAngular },
 	{ name: 'React', icon: FaReact },
 	{ name: 'NextJs', icon: RiNextjsFill },
@@ -37,6 +41,9 @@ const technologies = [
   ];
 
   const frontEndTechnologies = [
+	{ name: 'Wix', icon: FaWix },
+	{ name: 'Wordpress', icon: FaWordpress },
+	{ name: 'Elementor', icon: FaElementor },
 	{ name: 'Angular', icon: FaAngular },
 	{ name: 'React', icon: FaReact },
 	{ name: 'NextJs', icon: RiNextjsFill },
@@ -221,6 +228,54 @@ export default function Example() {
 				<h2 className="text-2xl font-bold tracking-tight text-zinc-100">
 					Experiences
 				</h2>
+			</div>
+
+			<div className="relative bg-gradient-to-tl from-zinc-900 via-zinc-400/10 to-zinc-900">
+				<Card>
+					<div className="relative w-full h-full p-4 md:p-8">
+						<h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display">
+							FassaDigital
+						</h2>
+						<ul>
+							<li>
+
+							</li>
+						</ul>
+						<p className="mt-2 text-zinc-400">
+							Front End Engineer
+						</p>
+						<p className="mt-2 text-zinc-400 text-sm">
+							Tech Stack: Wix Studio.
+						</p>
+						<p className="mt-2 text-zinc-400 text-sm">
+							I create websites using Wix Studio. You can explore the websites I’ve built with Wix Studio in the Projects section.
+						</p>
+					</div>
+				</Card>
+			</div>
+
+			<div className="relative bg-gradient-to-tl from-zinc-900 via-zinc-400/10 to-zinc-900">
+				<Card>
+					<div className="relative w-full h-full p-4 md:p-8">
+						<h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display">
+							ILoveGolfWhen
+						</h2>
+						<ul>
+							<li>
+
+							</li>
+						</ul>
+						<p className="mt-2 text-zinc-400">
+							Front End Engineer
+						</p>
+						<p className="mt-2 text-zinc-400 text-sm">
+							Tech Stack: Wordpress, Elementor, E-commerce.
+						</p>
+						<p className="mt-2 text-zinc-400 text-sm">
+							Developed pages with elementor with working E commerce, setup the payment and shipping method.
+						</p>
+					</div>
+				</Card>
 			</div>
 
 			<div className="relative bg-gradient-to-tl from-zinc-900 via-zinc-400/10 to-zinc-900">
