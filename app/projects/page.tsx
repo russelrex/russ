@@ -198,7 +198,7 @@ export default async function ProjectsPage() {
             </Link>
           </Card>
           <Card>
-            <Link href='https://main.d2ulhmldzdm7lg.amplifyapp.com/' target="_blank">
+            <Link href='https://main.d1b9ywoz7johau.amplifyapp.com/' target="_blank">
               <article className="relative w-full h-full p-4 md:p-8">
                 <div className="flex items-center justify-between gap-2">
                   <div className="text-xs text-zinc-100">
