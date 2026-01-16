@@ -8,17 +8,26 @@ import { FaAngular, FaBootstrap, FaElementor, FaGithub, FaGitlab, FaNodeJs, FaPh
 import { RiNextjsFill } from "react-icons/ri";
 import { IoLogoIonic } from "react-icons/io";
 import { DiCodeigniter, DiJqueryLogo, DiMongodb } from "react-icons/di"
-import { SiAwsamplify, SiCypress, SiJira, SiLodash, SiMysql, SiRedux, SiTypescript } from "react-icons/si";
+import { SiAwsamplify, SiCurseforge, SiCypress, SiExpo, SiJira, SiLodash, SiMysql, SiRedux, SiTypescript, SiNestjs, SiStripe } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io5";
+import { BsRobot } from "react-icons/bs";
+import { VscCode } from "react-icons/vsc";
+import { TbBrandReactNative } from "react-icons/tb";
 import Particles from "../components/particles";
 import { Wix_Madefor_Display } from "@next/font/google";
 
 const technologies = [
+	{ name: 'React', icon: FaReact },
+	{ name: 'React Native', icon: TbBrandReactNative },
+	{ name: 'Cursor', icon: VscCode },
+	{ name: 'Claude AI', icon: BsRobot },
+	{ name: 'ExpoDev', icon: SiExpo },
+	{ name: 'NestJS', icon: SiNestjs },
+	{ name: 'Stripe', icon: SiStripe },
 	{ name: 'Wix', icon: FaWix },
 	{ name: 'Wordpress', icon: FaWordpress },
 	{ name: 'Elementor', icon: FaElementor },
 	{ name: 'Angular', icon: FaAngular },
-	{ name: 'React', icon: FaReact },
 	{ name: 'NextJs', icon: RiNextjsFill },
 	{ name: 'CodeIgniter', icon: DiCodeigniter },
 	{ name: 'Ionic', icon: IoLogoIonic },
@@ -41,11 +50,12 @@ const technologies = [
   ];
 
   const frontEndTechnologies = [
+	{ name: 'React', icon: FaReact },
+	{ name: 'React Native', icon: TbBrandReactNative },
 	{ name: 'Wix', icon: FaWix },
 	{ name: 'Wordpress', icon: FaWordpress },
 	{ name: 'Elementor', icon: FaElementor },
 	{ name: 'Angular', icon: FaAngular },
-	{ name: 'React', icon: FaReact },
 	{ name: 'NextJs', icon: RiNextjsFill },
 	{ name: 'CodeIgniter', icon: DiCodeigniter },
 	{ name: 'Ionic', icon: IoLogoIonic },
@@ -58,6 +68,7 @@ const technologies = [
 
   const backEndTechnologies = [
 	{ name: 'NodeJs', icon: FaNodeJs },
+	{ name: 'NestJS', icon: SiNestjs },
 	{ name: 'Jquery', icon: DiJqueryLogo },
 	{ name: 'PHP', icon: FaPhp },
 	{ name: 'MongoDB', icon: DiMongodb },
@@ -65,11 +76,14 @@ const technologies = [
   ];
   
   const otherTechnologies = [
+	{ name: 'Stripe', icon: SiStripe },
 	{ name: 'Cypress', icon: SiCypress },
 	{ name: 'Gitlab', icon: FaGitlab },
 	{ name: 'Github', icon: FaGithub },
 	{ name: 'AWSamplify', icon: SiAwsamplify },
 	{ name: 'Jira', icon: SiJira },
+	{ name: 'Cursor', icon: VscCode },
+	{ name: 'Claude AI', icon: BsRobot },
   ];
 
 export default function Example() {
@@ -234,6 +248,44 @@ export default function Example() {
 				<Card>
 					<div className="relative w-full h-full p-4 md:p-8">
 						<h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display">
+							GoFetch - Personal Project
+						</h2>
+						<p className="mt-2 text-zinc-400">
+							Full Stack Developer
+						</p>
+						<p className="mt-2 text-zinc-400 text-sm">
+							Tech Stack: React Native, Expo, NestJS, TypeScript, MongoDB, Ably, JWT.
+						</p>
+						<p className="mt-2 text-zinc-400 text-sm">
+							Building a full-stack mobile marketplace platform connecting clients with task performers. Developed cross-platform mobile app with React Native, implemented secure authentication, real-time chat with Ably, and RESTful APIs with NestJS and MongoDB.
+						</p>
+					</div>
+				</Card>
+			</div>
+
+			<div className="relative bg-gradient-to-tl from-zinc-900 via-zinc-400/10 to-zinc-900">
+				<Card>
+					<div className="relative w-full h-full p-4 md:p-8">
+						<h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display">
+							Enterprise Dashboard & CRM
+						</h2>
+						<p className="mt-2 text-zinc-400">
+							Full Stack Developer
+						</p>
+						<p className="mt-2 text-zinc-400 text-sm">
+							Tech Stack: Next.js 16, React 19, TypeScript, NextAuth, MongoDB, Mongoose, Ably.
+						</p>
+						<p className="mt-2 text-zinc-400 text-sm">
+							Developed a comprehensive business management platform with Stripe payment integration, advanced user role management, full-featured CRM system, and real-time chat functionality using Next.js App Router and WebSocket support.
+						</p>
+					</div>
+				</Card>
+			</div>
+
+			<div className="relative bg-gradient-to-tl from-zinc-900 via-zinc-400/10 to-zinc-900">
+				<Card>
+					<div className="relative w-full h-full p-4 md:p-8">
+						<h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display">
 							FassaDigital
 						</h2>
 						<ul>
@@ -248,7 +300,7 @@ export default function Example() {
 							Tech Stack: Wix Studio.
 						</p>
 						<p className="mt-2 text-zinc-400 text-sm">
-							I create websites using Wix Studio. You can explore the websites I’ve built with Wix Studio in the Projects section.
+							I create websites using Wix Studio. You can explore the websites I've built with Wix Studio in the Projects section.
 						</p>
 					</div>
 				</Card>

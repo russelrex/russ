@@ -33,7 +33,322 @@ export default async function ProjectsPage() {
           </h2>
         </div>
         <div className="w-full h-px bg-zinc-800" />
+        
+        <div className="max-w-2xl mx-auto lg:mx-0">
+          <p className="text-base text-zinc-400">
+            Click on any project card below to view the live application
+          </p>
+        </div>
 
+        <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-1">
+          <Card>
+            <Link href='https://dashboard-example-001.vercel.app/' target="_blank">
+              <article className="relative w-full h-full p-4 md:p-8">
+                <div className="flex items-center justify-between gap-2">
+                  <div className="text-xs text-zinc-100">
+                    January 2026
+                  </div>
+                </div>
+
+                <h2
+                  id="featured-post"
+                  className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
+                >
+                  Enterprise Dashboard & CRM Platform
+                </h2>
+                
+                <p className="mt-4 text-base leading-7 text-zinc-400 group-hover:text-zinc-300">
+                  A comprehensive business management platform featuring integrated payment processing, 
+                  user management, CRM capabilities, and real-time communication tools.
+                </p>
+
+                <div className="mt-6">
+                  <h3 className="text-lg font-semibold text-zinc-200 mb-3">Key Features</h3>
+                  <ul className="space-y-2 text-zinc-400 group-hover:text-zinc-300">
+                    <li className="flex items-start">
+                      <span className="text-zinc-500 mr-2">•</span>
+                      <span>Stripe integration for seamless payment processing</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-zinc-500 mr-2">•</span>
+                      <span>Advanced dashboard for managing users, roles, and permissions</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-zinc-500 mr-2">•</span>
+                      <span>Full-featured CRM for managing customers, projects, and tasks</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-zinc-500 mr-2">•</span>
+                      <span>Real-time chat functionality for seamless team communication</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="mt-6">
+                  <h3 className="text-lg font-semibold text-zinc-200 mb-3">Technology Stack</h3>
+                  
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="text-sm font-medium text-zinc-300 mb-2">Frontend Framework & Core</h4>
+                      <ul className="space-y-1 text-sm text-zinc-400 ml-4">
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>Next.js 16.1.2 (App Router, Server Components, Turbopack)</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>React 19.0.0</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>TypeScript 5</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>Tailwind CSS 3.4.1</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-medium text-zinc-300 mb-2">Authentication & Security</h4>
+                      <ul className="space-y-1 text-sm text-zinc-400 ml-4">
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>NextAuth.js 4.24.11 (JWT strategy, Google OAuth, Credentials)</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>bcryptjs 2.4.3</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-medium text-zinc-300 mb-2">Database & Backend</h4>
+                      <ul className="space-y-1 text-sm text-zinc-400 ml-4">
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>MongoDB 6.11.0</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>Mongoose 8.8.3</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>Next.js API Routes</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-medium text-zinc-300 mb-2">Real-time & Communication</h4>
+                      <ul className="space-y-1 text-sm text-zinc-400 ml-4">
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>Ably 2.12.0</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>WebSocket support</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </Link>
+          </Card>
+        </div>
+        <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-1">
+          <Card>
+            <Link href='#'>
+              <article className="relative w-full h-full p-4 md:p-8">
+                <div className="flex items-center justify-between gap-2">
+                  <div className="text-xs text-zinc-100">
+                    January 2026
+                  </div>
+                </div>
+
+                <h2
+                  id="featured-post"
+                  className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
+                >
+                  GoFetch - Task Marketplace Platform
+                </h2>
+
+                <div className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 bg-amber-500/10 border border-amber-500/20 rounded-md">
+                  <span className="text-sm font-medium text-amber-400">
+                    🚧 Personal Project - Currently in Development (Not Yet Deployed Live)
+                  </span>
+                </div>
+                
+                <p className="mt-4 text-base leading-7 text-zinc-400 group-hover:text-zinc-300">
+                  A full-stack mobile marketplace platform that connects clients who need tasks completed with fetchers 
+                  willing to complete them. Similar to TaskRabbit meets Grab, GoFetch enables anyone to post errands 
+                  (grocery shopping, food delivery, pickup services) and allows other users to bid on and complete 
+                  these tasks for a client-determined delivery fee.
+                </p>
+
+                <div className="mt-6">
+                  <h3 className="text-lg font-semibold text-zinc-200 mb-3">Technology Stack</h3>
+                  
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="text-sm font-medium text-zinc-300 mb-2">Frontend (Mobile)</h4>
+                      <ul className="space-y-1 text-sm text-zinc-400 ml-4">
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>React Native - Cross-platform mobile development (iOS & Android)</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>Expo - Development toolchain and build system</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>TypeScript - Type-safe development</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>React Navigation - Screen navigation and routing</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>Expo SecureStore - Secure credential storage</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>React Native Maps - Location services and tracking</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>Lucide React Native - Icon library</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-medium text-zinc-300 mb-2">Backend (API)</h4>
+                      <ul className="space-y-1 text-sm text-zinc-400 ml-4">
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>NestJS - Progressive Node.js framework</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>TypeScript - End-to-end type safety</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>JWT (jsonwebtoken) - Secure authentication</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>bcryptjs - Password hashing</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>MongoDB - NoSQL database for flexible data models</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>Mongoose - MongoDB object modeling</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>Class Validator - DTO validation</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-medium text-zinc-300 mb-2">Infrastructure & DevOps</h4>
+                      <ul className="space-y-1 text-sm text-zinc-400 ml-4">
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>Railway - Backend hosting and deployment</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>Render - Alternative backend hosting</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>MongoDB Atlas - Cloud database hosting</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>Docker - Containerization (optional)</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>Git/GitHub - Version control and CI/CD</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-medium text-zinc-300 mb-2">Development Tools</h4>
+                      <ul className="space-y-1 text-sm text-zinc-400 ml-4">
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>Cursor IDE - AI-assisted development</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>Postman - API testing</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>ESLint & Prettier - Code quality</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-zinc-600 mr-2">→</span>
+                          <span>pnpm - Fast package manager</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-8">
+                  <h3 className="text-lg font-semibold text-zinc-200 mb-4">App Screenshots</h3>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div className="overflow-hidden rounded-lg border border-zinc-700 hover:border-zinc-500 transition-all">
+                      <img src="gofetch/fetch001.png" alt="GoFetch App Screenshot 1" className="w-full h-auto object-cover" />
+                    </div>
+                    <div className="overflow-hidden rounded-lg border border-zinc-700 hover:border-zinc-500 transition-all">
+                      <img src="gofetch/fetch002.png" alt="GoFetch App Screenshot 2" className="w-full h-auto object-cover" />
+                    </div>
+                    <div className="overflow-hidden rounded-lg border border-zinc-700 hover:border-zinc-500 transition-all">
+                      <img src="gofetch/fetch003.png" alt="GoFetch App Screenshot 3" className="w-full h-auto object-cover" />
+                    </div>
+                    <div className="overflow-hidden rounded-lg border border-zinc-700 hover:border-zinc-500 transition-all">
+                      <img src="gofetch/fetch004.png" alt="GoFetch App Screenshot 4" className="w-full h-auto object-cover" />
+                    </div>
+                    <div className="overflow-hidden rounded-lg border border-zinc-700 hover:border-zinc-500 transition-all">
+                      <img src="gofetch/fetch005.png" alt="GoFetch App Screenshot 5" className="w-full h-auto object-cover" />
+                    </div>
+                    <div className="overflow-hidden rounded-lg border border-zinc-700 hover:border-zinc-500 transition-all">
+                      <img src="gofetch/fetch006.png" alt="GoFetch App Screenshot 6" className="w-full h-auto object-cover" />
+                    </div>
+                    <div className="overflow-hidden rounded-lg border border-zinc-700 hover:border-zinc-500 transition-all">
+                      <img src="gofetch/fetch007.png" alt="GoFetch App Screenshot 7" className="w-full h-auto object-cover" />
+                    </div>
+                    <div className="overflow-hidden rounded-lg border border-zinc-700 hover:border-zinc-500 transition-all">
+                      <img src="gofetch/fetch008.png" alt="GoFetch App Screenshot 8" className="w-full h-auto object-cover" />
+                    </div>
+                    <div className="overflow-hidden rounded-lg border border-zinc-700 hover:border-zinc-500 transition-all">
+                      <img src="gofetch/fetch009.png" alt="GoFetch App Screenshot 9" className="w-full h-auto object-cover" />
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </Link>
+          </Card>
+        </div>
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
         <Card>
             <Link href='https://www.a-traq.com/' target="_blank">
