@@ -248,6 +248,48 @@ export default function Example() {
 				<Card>
 					<div className="relative w-full h-full p-4 md:p-8">
 						<h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display">
+							RecipeStash - Personal Project
+						</h2>
+						<p className="mt-2 text-zinc-400">
+							Full Stack Developer
+						</p>
+						<p className="mt-2 text-zinc-400 text-sm">
+							Tech Stack: React Native, NestJS, TypeScript, MongoDB, AI extraction, URL parsing.
+						</p>
+						<p className="mt-2 text-zinc-400 text-sm">
+							Built a modern recipe management app with AI-powered recipe extraction from images,
+							recipe import via URL, manual recipe creation, shopping list generation, meal
+							planning, discovery feed, and personalized user profiles.
+						</p>
+					</div>
+				</Card>
+			</div>
+
+			<div className="relative bg-gradient-to-tl from-zinc-900 via-zinc-400/10 to-zinc-900">
+				<Card>
+					<div className="relative w-full h-full p-4 md:p-8">
+						<h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display">
+							FlickBook - Personal Project
+						</h2>
+						<p className="mt-2 text-zinc-400">
+							Full Stack Developer
+						</p>
+						<p className="mt-2 text-zinc-400 text-sm">
+							Tech Stack: React Native, NestJS, TypeScript, MongoDB, Socket.io, AWS S3, Google Maps.
+						</p>
+						<p className="mt-2 text-zinc-400 text-sm">
+							Developed a full-stack pickleball platform with social feed, matchmaking, real-time
+							chat, ELO rating system, interactive court map, teams, follow system, notifications,
+							score tracking, and robust modular backend architecture with TTL-based cleanup.
+						</p>
+					</div>
+				</Card>
+			</div>
+
+			<div className="relative bg-gradient-to-tl from-zinc-900 via-zinc-400/10 to-zinc-900">
+				<Card>
+					<div className="relative w-full h-full p-4 md:p-8">
+						<h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display">
 							GoFetch - Personal Project
 						</h2>
 						<p className="mt-2 text-zinc-400">
