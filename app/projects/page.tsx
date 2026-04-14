@@ -42,7 +42,7 @@ export default async function ProjectsPage() {
 
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-1">
           <Card>
-            <Link href="https://recipestash.food" target="_blank">
+            <>
               <article className="relative w-full h-full p-4 md:p-8">
                 <div className="flex items-center justify-between gap-2">
                   <div className="text-xs text-zinc-100">
@@ -145,13 +145,98 @@ export default async function ProjectsPage() {
                     </div>
                   </div>
                 </div>
+
+                <div className="mt-8">
+                  <h3 className="text-lg font-semibold text-zinc-200 mb-2">RecipeStash Feature Videos</h3>
+                  <p className="text-sm text-zinc-400 mb-4">
+                    Built a recipe management platform powered by AI to simplify recipe creation, organization, and meal planning.
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+                    <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
+                      <h4 className="text-sm font-medium text-zinc-200 mb-2">AI Powered Image Recipe Extraction</h4>
+                      <video controls className="w-full rounded-md mb-2" preload="metadata">
+                        <source src="/videos/AI Powered Image Recipe Extraction.mov" type="video/quicktime" />
+                        Your browser does not support the video tag.
+                      </video>
+                      <p className="text-xs leading-5 text-zinc-400">
+                        Extracts recipe details directly from uploaded images using AI. Automatically identifies ingredients, instructions, and formatting, turning screenshots or photos into structured, usable recipes in seconds.
+                      </p>
+                    </div>
+
+                    <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
+                      <h4 className="text-sm font-medium text-zinc-200 mb-2">AI Powered Recipe via Link</h4>
+                      <video controls className="w-full rounded-md mb-2" preload="metadata">
+                        <source src="/videos/AI Powered Recipe Via Link.mov" type="video/quicktime" />
+                        Your browser does not support the video tag.
+                      </video>
+                      <p className="text-xs leading-5 text-zinc-400">
+                        Generates complete recipes from a shared URL. The system scans the webpage, extracts relevant cooking data, and converts it into a clean, standardized recipe format for easy use and saving.
+                      </p>
+                    </div>
+
+                    <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
+                      <h4 className="text-sm font-medium text-zinc-200 mb-2">All Recipe Feature</h4>
+                      <video controls className="w-full rounded-md mb-2" preload="metadata">
+                        <source src="/videos/All Recipe Feature.mov" type="video/quicktime" />
+                        Your browser does not support the video tag.
+                      </video>
+                      <p className="text-xs leading-5 text-zinc-400">
+                        Centralized recipe management system where users can view, organize, and access all saved recipes in one place. Designed for easy navigation and efficient content management.
+                      </p>
+                    </div>
+
+                    <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
+                      <h4 className="text-sm font-medium text-zinc-200 mb-2">Create Post with Linked Recipe</h4>
+                      <video controls className="w-full rounded-md mb-2" preload="metadata">
+                        <source src="/videos/Create Post with Linked Recipe.mov" type="video/quicktime" />
+                        Your browser does not support the video tag.
+                      </video>
+                      <p className="text-xs leading-5 text-zinc-400">
+                        Allows users to create and share posts connected to specific recipes. Combines content creation with functionality, making it easy to showcase recipes while keeping them structured and accessible.
+                      </p>
+                    </div>
+
+                    <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
+                      <h4 className="text-sm font-medium text-zinc-200 mb-2">Grocery Lists Feature</h4>
+                      <video controls className="w-full rounded-md mb-2" preload="metadata">
+                        <source src="/videos/Grocery Lists Feature.mov" type="video/quicktime" />
+                        Your browser does not support the video tag.
+                      </video>
+                      <p className="text-xs leading-5 text-zinc-400">
+                        Automatically generates grocery lists based on selected recipes. Helps users streamline meal prep by organizing ingredients into a convenient, actionable checklist.
+                      </p>
+                    </div>
+
+                    <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
+                      <h4 className="text-sm font-medium text-zinc-200 mb-2">Manual Create Recipe Feature</h4>
+                      <video controls className="w-full rounded-md mb-2" preload="metadata">
+                        <source src="/videos/Manual Create Recipe Feature.mov" type="video/quicktime" />
+                        Your browser does not support the video tag.
+                      </video>
+                      <p className="text-xs leading-5 text-zinc-400">
+                        Enables users to manually input and customize recipes. Ideal for adding original or unique recipes with full control over ingredients, steps, and formatting.
+                      </p>
+                    </div>
+
+                    <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
+                      <h4 className="text-sm font-medium text-zinc-200 mb-2">Meal Plan Feature</h4>
+                      <video controls className="w-full rounded-md mb-2" preload="metadata">
+                        <source src="/videos/Meal Plan Feature.mov" type="video/quicktime" />
+                        Your browser does not support the video tag.
+                      </video>
+                      <p className="text-xs leading-5 text-zinc-400">
+                        Provides a structured way to plan meals in advance by organizing recipes into a schedule. Helps users stay consistent, save time, and manage their weekly or daily food planning efficiently.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </article>
-            </Link>
+            </>
           </Card>
         </div>
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-1">
           <Card>
-            <Link href="#" target="_blank">
+            <>
               <article className="relative w-full h-full p-4 md:p-8">
                 <div className="flex items-center justify-between gap-2">
                   <div className="text-xs text-zinc-100">
@@ -237,8 +322,79 @@ export default async function ProjectsPage() {
                     <li className="flex items-start"><span className="text-zinc-600 mr-2">•</span><span>MongoDB TTL indexes automatically expire stories, game invites, and notifications without manual cleanup jobs</span></li>
                   </ul>
                 </div>
+
+                <div className="mt-8">
+                  <h3 className="text-lg font-semibold text-zinc-200 mb-3">FlickBook Feature Videos</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+                    <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
+                      <h4 className="text-sm font-medium text-zinc-200 mb-2">Find A Court Feature with Google Map</h4>
+                      <video controls className="w-full rounded-md mb-2" preload="metadata">
+                        <source src="/flickbook/Find A Court feature with Google Map.mov" type="video/quicktime" />
+                        Your browser does not support the video tag.
+                      </video>
+                      <p className="text-xs leading-5 text-zinc-400">
+                        Helps players find nearby pickleball courts using Google Maps, location search, GPS, and filters like Open Now, Indoor, Outdoor, and Near Me. Users can tap map markers to view court details such as photo, rating, hours, phone number, directions, and sharing options.
+                      </p>
+                    </div>
+
+                    <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
+                      <h4 className="text-sm font-medium text-zinc-200 mb-2">Find A Game Feature with 1-on-1 Chat</h4>
+                      <video controls className="w-full rounded-md mb-2" preload="metadata">
+                        <source src="/flickbook/Find A Game Feature With 1 on 1 chat.mov" type="video/quicktime" />
+                        Your browser does not support the video tag.
+                      </video>
+                      <p className="text-xs leading-5 text-zinc-400">
+                        A game-matching feature where players can post games, find other players, and connect based on skill level and location. Once a request is accepted, a private real-time chat opens for direct coordination.
+                      </p>
+                    </div>
+
+                    <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
+                      <h4 className="text-sm font-medium text-zinc-200 mb-2">Match Feature</h4>
+                      <video controls className="w-full rounded-md mb-2" preload="metadata">
+                        <source src="/flickbook/Match Feature.mov" type="video/quicktime" />
+                        Your browser does not support the video tag.
+                      </video>
+                      <p className="text-xs leading-5 text-zinc-400">
+                        Allows players to submit singles or doubles match results, enter scores, and select opponents. Results automatically update player rankings through an ELO-based rating system across multiple skill levels.
+                      </p>
+                    </div>
+
+                    <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
+                      <h4 className="text-sm font-medium text-zinc-200 mb-2">My Day Feature</h4>
+                      <video controls className="w-full rounded-md mb-2" preload="metadata">
+                        <source src="/flickbook/My Day Feature.mov" type="video/quicktime" />
+                        Your browser does not support the video tag.
+                      </video>
+                      <p className="text-xs leading-5 text-zinc-400">
+                        A 24-hour story feature where users can share photos with captions, similar to Instagram Stories. Stories appear in the feed, play in full screen, and automatically expire after 24 hours while remaining saved in the user’s profile gallery.
+                      </p>
+                    </div>
+
+                    <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
+                      <h4 className="text-sm font-medium text-zinc-200 mb-2">Newsfeed Feature</h4>
+                      <video controls className="w-full rounded-md mb-2" preload="metadata">
+                        <source src="/flickbook/Newsfeed Feature.mov" type="video/quicktime" />
+                        Your browser does not support the video tag.
+                      </video>
+                      <p className="text-xs leading-5 text-zinc-400">
+                        A community feed where users can share updates, photos, and posts, while others can like, comment, and reply in threaded conversations. It also includes notifications, profile navigation, and quick posting actions.
+                      </p>
+                    </div>
+
+                    <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
+                      <h4 className="text-sm font-medium text-zinc-200 mb-2">Team Feature with Team Chat</h4>
+                      <video controls className="w-full rounded-md mb-2" preload="metadata">
+                        <source src="/flickbook/Team Feature With Team Chat.mov" type="video/quicktime" />
+                        Your browser does not support the video tag.
+                      </video>
+                      <p className="text-xs leading-5 text-zinc-400">
+                        A team management feature where players can create or join teams with different roles and visibility settings. Teams have their own profile, member system, and real-time group chat for communication.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </article>
-            </Link>
+            </>
           </Card>
         </div>
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-1">
