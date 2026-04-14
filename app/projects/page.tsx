@@ -163,7 +163,7 @@ export default async function ProjectsPage() {
                     <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
                       <h4 className="text-sm font-medium text-zinc-200 mb-2">AI Powered Image Recipe Extraction</h4>
                       <video controls className="w-full rounded-md mb-2" preload="metadata">
-                        <source src="/videos/AI Powered Image Recipe Extraction.mov" type="video/quicktime" />
+                        <source src="/videos/AI Powered Image Recipe Extraction.mov 23-33-44-038.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                       <p className="text-xs leading-5 text-zinc-400">
@@ -174,7 +174,7 @@ export default async function ProjectsPage() {
                     <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
                       <h4 className="text-sm font-medium text-zinc-200 mb-2">AI Powered Recipe via Link</h4>
                       <video controls className="w-full rounded-md mb-2" preload="metadata">
-                        <source src="/videos/AI Powered Recipe Via Link.mov" type="video/quicktime" />
+                        <source src="/videos/AI Powered Recipe Via Link.mov 23-33-44-078.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                       <p className="text-xs leading-5 text-zinc-400">
@@ -185,7 +185,7 @@ export default async function ProjectsPage() {
                     <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
                       <h4 className="text-sm font-medium text-zinc-200 mb-2">All Recipe Feature</h4>
                       <video controls className="w-full rounded-md mb-2" preload="metadata">
-                        <source src="/videos/All Recipe Feature.mov" type="video/quicktime" />
+                        <source src="/videos/All Recipe Feature.mov 23-33-44-118.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                       <p className="text-xs leading-5 text-zinc-400">
@@ -196,7 +196,7 @@ export default async function ProjectsPage() {
                     <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
                       <h4 className="text-sm font-medium text-zinc-200 mb-2">Create Post with Linked Recipe</h4>
                       <video controls className="w-full rounded-md mb-2" preload="metadata">
-                        <source src="/videos/Create Post with Linked Recipe.mov" type="video/quicktime" />
+                        <source src="/videos/Create Post with Linked Recipe.mov 23-33-44-128.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                       <p className="text-xs leading-5 text-zinc-400">
@@ -207,7 +207,7 @@ export default async function ProjectsPage() {
                     <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
                       <h4 className="text-sm font-medium text-zinc-200 mb-2">Grocery Lists Feature</h4>
                       <video controls className="w-full rounded-md mb-2" preload="metadata">
-                        <source src="/videos/Grocery Lists Feature.mov" type="video/quicktime" />
+                        <source src="/videos/Grocery Lists Feature.mov 23-33-44-135.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                       <p className="text-xs leading-5 text-zinc-400">
@@ -218,7 +218,7 @@ export default async function ProjectsPage() {
                     <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
                       <h4 className="text-sm font-medium text-zinc-200 mb-2">Manual Create Recipe Feature</h4>
                       <video controls className="w-full rounded-md mb-2" preload="metadata">
-                        <source src="/videos/Manual Create Recipe Feature.mov" type="video/quicktime" />
+                        <source src="/videos/Manual Create Recipe Feature.mov 23-33-44-137.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                       <p className="text-xs leading-5 text-zinc-400">
@@ -229,7 +229,7 @@ export default async function ProjectsPage() {
                     <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
                       <h4 className="text-sm font-medium text-zinc-200 mb-2">Meal Plan Feature</h4>
                       <video controls className="w-full rounded-md mb-2" preload="metadata">
-                        <source src="/videos/Meal Plan Feature.mov" type="video/quicktime" />
+                        <source src="/videos/Meal Plan Feature.mov 23-33-44-138.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                       <p className="text-xs leading-5 text-zinc-400">
@@ -337,7 +337,7 @@ export default async function ProjectsPage() {
                     <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
                       <h4 className="text-sm font-medium text-zinc-200 mb-2">Find A Court Feature with Google Map</h4>
                       <video controls className="w-full rounded-md mb-2" preload="metadata">
-                        <source src="/flickbook/Find A Court feature with Google Map.mov" type="video/quicktime" />
+                        <source src="/flickbook/Find A Court feature with Google Map-2.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                       <p className="text-xs leading-5 text-zinc-400">
@@ -348,7 +348,7 @@ export default async function ProjectsPage() {
                     <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
                       <h4 className="text-sm font-medium text-zinc-200 mb-2">Find A Game Feature with 1-on-1 Chat</h4>
                       <video controls className="w-full rounded-md mb-2" preload="metadata">
-                        <source src="/flickbook/Find A Game Feature With 1 on 1 chat.mov" type="video/quicktime" />
+                        <source src="/flickbook/Find A Game Feature With 1 on 1 chat.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                       <p className="text-xs leading-5 text-zinc-400">
@@ -359,7 +359,7 @@ export default async function ProjectsPage() {
                     <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
                       <h4 className="text-sm font-medium text-zinc-200 mb-2">Match Feature</h4>
                       <video controls className="w-full rounded-md mb-2" preload="metadata">
-                        <source src="/flickbook/Match Feature.mov" type="video/quicktime" />
+                        <source src="/flickbook/Match Feature.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                       <p className="text-xs leading-5 text-zinc-400">
@@ -370,7 +370,7 @@ export default async function ProjectsPage() {
                     <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
                       <h4 className="text-sm font-medium text-zinc-200 mb-2">My Day Feature</h4>
                       <video controls className="w-full rounded-md mb-2" preload="metadata">
-                        <source src="/flickbook/My Day Feature.mov" type="video/quicktime" />
+                        <source src="/flickbook/My Day Feature.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                       <p className="text-xs leading-5 text-zinc-400">
@@ -381,7 +381,7 @@ export default async function ProjectsPage() {
                     <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
                       <h4 className="text-sm font-medium text-zinc-200 mb-2">Newsfeed Feature</h4>
                       <video controls className="w-full rounded-md mb-2" preload="metadata">
-                        <source src="/flickbook/Newsfeed Feature.mov" type="video/quicktime" />
+                        <source src="/flickbook/Newsfeed Feature-2.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                       <p className="text-xs leading-5 text-zinc-400">
@@ -392,7 +392,7 @@ export default async function ProjectsPage() {
                     <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
                       <h4 className="text-sm font-medium text-zinc-200 mb-2">Team Feature with Team Chat</h4>
                       <video controls className="w-full rounded-md mb-2" preload="metadata">
-                        <source src="/flickbook/Team Feature With Team Chat.mov" type="video/quicktime" />
+                        <source src="/flickbook/Team Feature With Team Chat-2.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                       <p className="text-xs leading-5 text-zinc-400">
