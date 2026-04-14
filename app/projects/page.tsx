@@ -56,6 +56,14 @@ export default async function ProjectsPage() {
                 >
                   RecipeStash
                 </h2>
+                <a
+                  href="https://recipestash.food"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-block text-sm text-blue-400 hover:text-blue-300 underline"
+                >
+                  https://recipestash.food
+                </a>
 
                 <p className="mt-4 text-base leading-7 text-zinc-400 group-hover:text-zinc-300">
                   Product Documentation
