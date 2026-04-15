@@ -335,6 +335,17 @@ export default async function ProjectsPage() {
                   <h3 className="text-lg font-semibold text-zinc-200 mb-3">FlickBook Feature Videos</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
                     <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
+                      <h4 className="text-sm font-medium text-zinc-200 mb-2">Matching Feature</h4>
+                      <video controls className="w-full rounded-md mb-2" preload="metadata">
+                        <source src="/flickbook/Matching_feature.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                      <p className="text-xs leading-5 text-zinc-400">
+                        You can now post a game under "Looking to Play" and receive invites from other users. You can view a user&apos;s profile before accepting their invite. Once you accept, it unlocks a private 1-on-1 chat where you can coordinate and set up your game, including sharing your location.
+                      </p>
+                    </div>
+
+                    <div className="rounded-lg border border-zinc-800 p-3 bg-zinc-900/40">
                       <h4 className="text-sm font-medium text-zinc-200 mb-2">Find A Court Feature with Google Map</h4>
                       <video controls className="w-full rounded-md mb-2" preload="metadata">
                         <source src="/flickbook/Find A Court feature with Google Map-2.mp4" type="video/mp4" />
