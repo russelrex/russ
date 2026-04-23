@@ -8,11 +8,11 @@ export const metadata: Metadata = {
     default: "russ",
     template: "%s | russ",
   },
-  description: "Co-founder of unkey.dev and founder of planetfall.io",
+  description: "FullStack Developer",
   openGraph: {
     title: "russ",
     description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
+      "FullStack Developer",
     url: "https://russ",
     siteName: "russ",
     images: [
