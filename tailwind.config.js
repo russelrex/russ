@@ -32,6 +32,18 @@ module.exports = {
 				sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
 				display: ["var(--font-calsans)"],
 			},
+			colors: {
+				espresso: "#2B1B12",
+				oat: "#F2E9DD",
+				sage: "#A9B79A",
+				butter: "#EAD08A",
+				coral: "#F26C5E",
+			},
+			borderRadius: {
+				card: "20px",
+				btn: "100px",
+				input: "14px",
+			},
 			backgroundImage: {
 				"gradient-radial":
 					"radial-gradient(50% 50% at 50% 50%, var(--tw-gradient-stops))",

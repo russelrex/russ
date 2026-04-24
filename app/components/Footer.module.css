@@ -1,0 +1,27 @@
+.footer {
+  background: var(--espresso);
+  border-top: 1px solid rgba(242, 233, 221, 0.08);
+  padding: 2rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.copy {
+  font-size: 0.8rem;
+  color: rgba(242, 233, 221, 0.3);
+}
+
+.location {
+  font-size: 0.8rem;
+  color: rgba(242, 233, 221, 0.15);
+}
+
+@media (max-width: 800px) {
+  .footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+}

@@ -2,9 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --espresso: #2b1b12;
+  --oat: #f2e9dd;
+  --oat-dark: #e8dbcb;
+  --sage: #a9b79a;
+  --butter: #ead08a;
+  --coral: #f26c5e;
+  --text-muted: #7a6555;
+  --radius: 14px;
+  --radius-sm: 8px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--oat);
+  color: var(--espresso);
+  font-family: var(--font-dm-sans), sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(43, 27, 18, 0.15);
+  border-radius: 100px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 100px;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-coral {
+  background: var(--coral);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(242, 108, 94, 0.3);
+}
+
+.btn-coral:hover {
+  background: #e85c4f;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(242, 108, 94, 0.35);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--espresso);
+  border: 1.5px solid rgba(43, 27, 18, 0.2);
+}
+
+.btn-outline:hover {
+  background: rgba(43, 27, 18, 0.05);
+  border-color: rgba(43, 27, 18, 0.35);
+}
+
 @layer base {
   .text-edge-outline {
-    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
   }
-} 
-
+}
