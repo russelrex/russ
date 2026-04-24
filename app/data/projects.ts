@@ -91,6 +91,7 @@ export const PROJECTS: Project[] = [
     tech: ["React Native", "NestJS", "Socket.io", "MongoDB", "AWS S3"],
     role: "Full-Stack Developer",
     year: "2026",
+    caseStudyHref: "https://flickbook-web.vercel.app",
     images: [
       {
         src: "/flickbook/Find A Court feature with Google Map-2.mp4",
@@ -269,5 +270,5 @@ export const PROJECTS: Project[] = [
         aspectClass: "aspect-[16/10]",
       },
     ],
-  },
+  },  
 ];
