@@ -32,12 +32,14 @@ export default function About() {
 
           <RevealOnScroll delay={0.2}>
             <div className={styles.statsGrid}>
-              {stats.map((stat) => (
+              {stats
+                .filter((stat) => stat.label === "Years building products")
+                .map((stat) => (
                 <div key={stat.label} className={styles.statCard}>
                   <div className={styles.statNum}>{stat.value}</div>
                   <div className={styles.statLabel}>{stat.label}</div>
                 </div>
-              ))}
+                ))}
             </div>
           </RevealOnScroll>
         </div>

@@ -10,9 +10,9 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: center;
+  grid-template-columns: minmax(0, 1.35fr) auto;
+  gap: 2rem;
+  align-items: start;
 }
 
 .label {
@@ -51,8 +51,9 @@
 
 .statsGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 220px;
 }
 
 .statCard {
