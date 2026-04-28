@@ -22,7 +22,7 @@ export type Project = {
 export const PROJECTS: Project[] = [
   {
     id: "recipestash",
-    number: "01",
+    number: "02",
     title: "RecipeStash",
     description:
       "A modern recipe management application that helps users capture, organize, and manage recipes using AI-powered extraction from images and links. It combines smart import, manual creation, shopping lists, and meal planning in one workflow.",
@@ -84,7 +84,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "flickbook",
-    number: "02",
+    number: "01",
     title: "FlickBook",
     description:
       "A full-stack pickleball platform with social feed, matchmaking, real-time chat, ELO rating, court discovery, teams, and notifications. Built with a modular architecture focused on real-time interactions and scalable feature modules.",

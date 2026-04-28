@@ -6,7 +6,11 @@ import styles from "./Projects.module.css";
 export default function Projects() {
   const videoProjects = PROJECTS.filter((project) =>
     project.images.some((img) => img.src.toLowerCase().endsWith(".mp4")),
-  );
+  ).sort((a, b) => {
+    if (a.id === "flickbook") return -1;
+    if (b.id === "flickbook") return 1;
+    return 0;
+  });
   const nonVideoProjects = PROJECTS.filter(
     (project) => !project.images.some((img) => img.src.toLowerCase().endsWith(".mp4")),
   );
