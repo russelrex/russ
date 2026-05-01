@@ -7,7 +7,7 @@ import styles from "./Skills.module.css";
 export default function Skills() {
   return (
     <section id="skills" className={styles.section}>
-      <div className={styles.inner}>
+      <div className={styles.container}>
         <motion.p
           className={styles.label}
           initial={{ opacity: 0, y: 20 }}

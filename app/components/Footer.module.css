@@ -1,6 +1,12 @@
 .footer {
+  width: 100%;
   background: var(--espresso);
   border-top: 1px solid rgba(242, 233, 221, 0.08);
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
   padding: 2rem 3rem;
   display: flex;
   align-items: center;
@@ -18,7 +24,7 @@
 }
 
 @media (max-width: 800px) {
-  .footer {
+  .container {
     flex-direction: column;
     gap: 0.5rem;
     text-align: center;

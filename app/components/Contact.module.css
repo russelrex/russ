@@ -1,13 +1,12 @@
 .section {
+  width: 100%;
   background: var(--espresso);
-  padding: 6rem 3rem;
-  max-width: 1600px;
-  margin: 0 auto;
 }
 
-.inner {
-  max-width: 900px;
+.container {
+  max-width: 1600px;
   margin: 0 auto;
+  padding: 6rem 3rem;
 }
 
 .label {
@@ -82,7 +81,7 @@
 }
 
 @media (max-width: 800px) {
-  .section {
+  .container {
     padding: 4rem 1.5rem;
   }
 

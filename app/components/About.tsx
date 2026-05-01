@@ -6,7 +6,7 @@ import styles from "./About.module.css";
 export default function About() {
   return (
     <section id="about" className={styles.section}>
-      <div className={styles.inner}>
+      <div className={styles.container}>
         <div className={styles.grid}>
           <div className={styles.text}>
             <RevealOnScroll>

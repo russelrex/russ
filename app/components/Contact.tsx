@@ -47,7 +47,7 @@ const contactLinks = [
 export default function Contact() {
   return (
     <section id="contact" className={styles.section}>
-      <div className={styles.inner}>
+      <div className={styles.container}>
         <RevealOnScroll>
           <p className={styles.label}>Get in touch</p>
         </RevealOnScroll>
