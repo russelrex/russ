@@ -1,8 +1,7 @@
 import "../global.css";
-import { Inter } from "@next/font/google";
+import { Inter, Sora } from "next/font/google";
 import LocalFont from "@next/font/local";
 import { Metadata } from "next";
-import { Playfair_Display, DM_Sans } from "next/font/google";
 
 export const metadata: Metadata = {
   title: {
@@ -50,24 +49,21 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const calSans = LocalFont({
-  src: "../public/fonts/CalSans-SemiBold.ttf",
-  variable: "--font-calsans",
-});
-
-const playfair = Playfair_Display({
+const interDisplay = Inter({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  style: ["normal", "italic"],
   variable: "--font-playfair",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const sora = Sora({
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
   variable: "--font-dm-sans",
   display: "swap",
+});
+
+const calSans = LocalFont({
+  src: "../public/fonts/CalSans-SemiBold.ttf",
+  variable: "--font-calsans",
 });
 
 export default function RootLayout({
@@ -76,7 +72,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={[inter.variable, calSans.variable, playfair.variable, dmSans.variable].join(" ")}>
+    <html lang="en" className={[inter.variable, interDisplay.variable, sora.variable, calSans.variable].join(" ")}>
       <head>
       </head>
       <body className={`${process.env.NODE_ENV === "development" ? "debug-screens" : undefined}`}>

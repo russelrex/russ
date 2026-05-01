@@ -14,6 +14,12 @@ export default function Projects() {
   const nonVideoProjects = PROJECTS.filter(
     (project) => !project.images.some((img) => img.src.toLowerCase().endsWith(".mp4")),
   );
+  const realEstateProjects = nonVideoProjects.filter((project) =>
+    project.id.startsWith("version-"),
+  );
+  const moreProjects = nonVideoProjects.filter(
+    (project) => !project.id.startsWith("version-"),
+  );
 
   return (
     <section id="projects" className={styles.section}>
@@ -25,6 +31,54 @@ export default function Projects() {
           <h2 className={styles.title}>Projects</h2>
         </RevealOnScroll>
       </div>
+
+      {realEstateProjects.length > 0 && (
+        <div className={styles.nonVideoSection}>
+          <RevealOnScroll>
+            <h3 className={styles.nonVideoTitle}>Real Estate Website Concepts</h3>
+          </RevealOnScroll>
+          <div className={styles.nonVideoGrid}>
+            {realEstateProjects.map((project, index) => {
+              const thumb = project.images[0];
+              return (
+                <RevealOnScroll key={project.id} delay={index * 0.06}>
+                  <article className={styles.realEstateCard}>
+                    {thumb?.isReal && thumb.src ? (
+                      <Image
+                        src={thumb.src}
+                        alt={thumb.alt}
+                        width={1200}
+                        height={760}
+                        className={styles.realEstateImage}
+                      />
+                    ) : (
+                      <div className={styles.nonVideoPlaceholder}>{thumb?.alt ?? "Project preview"}</div>
+                    )}
+
+                    <div className={styles.realEstateOverlay}>
+                      <p className={styles.nonVideoMeta}>{project.year}</p>
+                      <h4 className={styles.nonVideoName}>{project.title}</h4>
+                      <p className={styles.nonVideoTech}>
+                        Tech Stack: {project.tech.join(", ")}
+                      </p>
+                      {project.caseStudyHref && (
+                        <a
+                          href={project.caseStudyHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.nonVideoLink}
+                        >
+                          Visit Project
+                        </a>
+                      )}
+                    </div>
+                  </article>
+                </RevealOnScroll>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {videoProjects.map((project, index) => (
         <div key={project.id} className={styles.entry}>
@@ -98,13 +152,13 @@ export default function Projects() {
         </div>
       ))}
 
-      {nonVideoProjects.length > 0 && (
+      {moreProjects.length > 0 && (
         <div className={styles.nonVideoSection}>
           <RevealOnScroll>
             <h3 className={styles.nonVideoTitle}>More Projects</h3>
           </RevealOnScroll>
           <div className={styles.nonVideoGrid}>
-            {nonVideoProjects.map((project, index) => {
+            {moreProjects.map((project, index) => {
               const thumb = project.images[0];
               return (
                 <RevealOnScroll key={project.id} delay={index * 0.06}>
