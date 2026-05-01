@@ -1,6 +1,8 @@
 .section {
   background: var(--espresso);
   padding: 6rem 3rem;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 .inner {

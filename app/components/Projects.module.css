@@ -1,6 +1,8 @@
 .section {
   padding: 0;
   background: var(--oat);
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 .header {
@@ -153,7 +155,7 @@
 
 .mediaVideo {
   width: 100%;
-  height: 100%;
+  height: 320px;
   display: block;
   object-fit: contain;
   background: #000;
@@ -308,6 +310,10 @@
   .right {
     padding: 1rem 1.5rem 3rem;
     grid-template-columns: 1fr;
+  }
+
+  .mediaVideo {
+    height: 260px;
   }
 
   .nonVideoSection {

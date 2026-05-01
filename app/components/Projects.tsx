@@ -17,8 +17,11 @@ export default function Projects() {
   const realEstateProjects = nonVideoProjects.filter((project) =>
     project.id.startsWith("version-"),
   );
+  const cafeProjects = nonVideoProjects.filter((project) =>
+    project.id.startsWith("cafe-"),
+  );
   const moreProjects = nonVideoProjects.filter(
-    (project) => !project.id.startsWith("version-"),
+    (project) => !project.id.startsWith("version-") && !project.id.startsWith("cafe-"),
   );
 
   return (
@@ -58,9 +61,51 @@ export default function Projects() {
                     <div className={styles.realEstateOverlay}>
                       <p className={styles.nonVideoMeta}>{project.year}</p>
                       <h4 className={styles.nonVideoName}>{project.title}</h4>
-                      <p className={styles.nonVideoTech}>
-                        Tech Stack: {project.tech.join(", ")}
-                      </p>
+                      {project.caseStudyHref && (
+                        <a
+                          href={project.caseStudyHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.nonVideoLink}
+                        >
+                          Visit Project
+                        </a>
+                      )}
+                    </div>
+                  </article>
+                </RevealOnScroll>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {cafeProjects.length > 0 && (
+        <div className={styles.nonVideoSection}>
+          <RevealOnScroll>
+            <h3 className={styles.nonVideoTitle}>Cafe Website Concepts</h3>
+          </RevealOnScroll>
+          <div className={styles.nonVideoGrid}>
+            {cafeProjects.map((project, index) => {
+              const thumb = project.images[0];
+              return (
+                <RevealOnScroll key={project.id} delay={index * 0.06}>
+                  <article className={styles.realEstateCard}>
+                    {thumb?.isReal && thumb.src ? (
+                      <Image
+                        src={thumb.src}
+                        alt={thumb.alt}
+                        width={1200}
+                        height={760}
+                        className={styles.realEstateImage}
+                      />
+                    ) : (
+                      <div className={styles.nonVideoPlaceholder}>{thumb?.alt ?? "Project preview"}</div>
+                    )}
+
+                    <div className={styles.realEstateOverlay}>
+                      <p className={styles.nonVideoMeta}>{project.year}</p>
+                      <h4 className={styles.nonVideoName}>{project.title}</h4>
                       {project.caseStudyHref && (
                         <a
                           href={project.caseStudyHref}
@@ -165,9 +210,6 @@ export default function Projects() {
                   <article className={styles.nonVideoCard}>
                     <p className={styles.nonVideoMeta}>{project.year}</p>
                     <h4 className={styles.nonVideoName}>{project.title}</h4>
-                    <p className={styles.nonVideoTech}>
-                      Tech Stack: {project.tech.join(", ")}
-                    </p>
                     {thumb?.isReal && thumb.src ? (
                       <Image
                         src={thumb.src}

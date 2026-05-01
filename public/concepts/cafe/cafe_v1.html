@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Maren Coffee — specialty coffee, fresh pastries, and a warm place to be. Open 7 days a week in Portland, OR.">
+<meta property="og:title" content="Maren Coffee">
+<meta property="og:description" content="Specialty coffee, fresh pastries, and a warm place to be. Seven days a week.">
+<meta property="og:type" content="website">
+<title>Maren Coffee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       oklch(11% 0.016 42);
+  --bg-mid:   oklch(15% 0.018 44);
+  --bg-card:  oklch(18% 0.020 44);
+  --bg-hover: oklch(22% 0.022 46);
+  --amber:    oklch(68% 0.130 68);
+  --amber-lo: oklch(55% 0.100 65);
+  --text-hi:  oklch(94% 0.012 72);
+  --text-mid: oklch(72% 0.018 65);
+  --text-lo:  oklch(50% 0.015 58);
+  --border:   oklch(24% 0.020 48);
+  --brd-mid:  oklch(32% 0.022 50);
+  --green:    oklch(65% 0.18 145);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text-hi); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 28px 64px;
+  transition: background .4s, padding .35s, border-color .4s;
+  border-bottom: 1px solid transparent;
+}
+nav.scrolled {
+  background: oklch(11% 0.016 42 / .93);
+  backdrop-filter: blur(20px);
+  padding: 16px 64px;
+  border-bottom-color: var(--border);
+}
+.nav-logo { text-decoration: none; display: flex; flex-direction: column; gap: 2px; }
+.nav-logo-name { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--text-hi); }
+.nav-logo-sub  { font-size: 8.5px; letter-spacing: .38em; text-transform: uppercase; color: var(--amber); font-weight: 400; }
+.nav-links { display: flex; gap: 44px; list-style: none; }
+.nav-links a {
+  font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--text-lo); text-decoration: none; font-weight: 400;
+  transition: color .2s; position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -3px; left: 0;
+  width: 0; height: 1px; background: var(--amber); transition: width .3s;
+}
+.nav-links a:hover { color: var(--text-hi); }
+.nav-links a:hover::after { width: 100%; }
+.nav-order {
+  font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; font-weight: 500; color: var(--text-hi);
+  background: transparent; border: 1px solid var(--brd-mid); padding: 10px 22px;
+  cursor: pointer; transition: background .25s, border-color .25s, color .25s;
+}
+.nav-order:hover { background: var(--amber); border-color: var(--amber); color: var(--bg); }
+
+/* ── HERO ── */
+#hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 88px; overflow: hidden; }
+.hero-left { display: flex; flex-direction: column; justify-content: center; padding: 80px 64px; position: relative; }
+.hero-eyebrow {
+  font-size: 10px; letter-spacing: .32em; text-transform: uppercase;
+  color: var(--amber); font-weight: 500; margin-bottom: 30px;
+  display: flex; align-items: center; gap: 14px;
+  opacity: 0; transform: translateY(18px); animation: fadeUp .7s .15s forwards;
+}
+.hero-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--amber); flex-shrink: 0; }
+.hero-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(58px, 6.5vw, 96px); font-weight: 300;
+  line-height: 1.03; color: var(--text-hi); letter-spacing: -.015em;
+  opacity: 0; transform: translateY(28px); animation: fadeUp .85s .3s forwards;
+}
+.hero-h1 em { font-style: italic; color: var(--amber); }
+.hero-sub {
+  margin-top: 28px; font-size: 16px; line-height: 1.75;
+  color: var(--text-mid); max-width: 370px;
+  opacity: 0; transform: translateY(18px); animation: fadeUp .7s .5s forwards;
+}
+.hero-btns {
+  margin-top: 48px; display: flex; gap: 20px; align-items: center;
+  opacity: 0; transform: translateY(18px); animation: fadeUp .7s .65s forwards;
+}
+.btn-fill {
+  font-family: 'DM Sans', sans-serif; font-size: 10.5px; letter-spacing: .22em;
+  text-transform: uppercase; font-weight: 500; background: var(--amber);
+  color: var(--bg); border: none; padding: 15px 36px; cursor: pointer;
+  text-decoration: none; display: inline-block; transition: background .25s, transform .18s;
+}
+.btn-fill:hover { background: oklch(75% .12 70); transform: translateY(-1px); }
+.btn-text {
+  font-family: 'DM Sans', sans-serif; font-size: 10.5px; letter-spacing: .22em;
+  text-transform: uppercase; font-weight: 400; color: var(--text-mid);
+  text-decoration: none; display: flex; align-items: center; gap: 8px;
+  transition: color .2s, gap .2s;
+}
+.btn-text:hover { color: var(--text-hi); gap: 14px; }
+.hero-stats {
+  margin-top: 60px; display: flex; gap: 44px;
+  padding-top: 40px; border-top: 1px solid var(--border);
+  opacity: 0; animation: fadeUp .7s .85s forwards;
+}
+.stat-n { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 300; color: var(--text-hi); line-height: 1; }
+.stat-l { font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--text-lo); margin-top: 6px; }
+.hero-right { position: relative; overflow: hidden; opacity: 0; animation: fadeIn 1.3s .3s forwards; }
+.hero-right img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(.72); }
+.hero-right::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to right, var(--bg) 0%, transparent 18%);
+}
+.hero-badge {
+  position: absolute; bottom: 40px; left: 40px;
+  background: oklch(11% .016 42 / .88); backdrop-filter: blur(14px);
+  border: 1px solid var(--brd-mid); padding: 18px 26px; z-index: 2;
+}
+.badge-row { display: flex; align-items: center; gap: 8px; font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--text-lo); }
+.badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+.badge-time { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 300; color: var(--text-hi); margin-top: 7px; }
+.scroll-ind { position: absolute; bottom: 44px; left: 64px; display: flex; align-items: center; gap: 14px; opacity: 0; animation: fadeIn .8s 1.3s forwards; }
+.scroll-line { width: 1px; height: 52px; background: var(--border); position: relative; overflow: hidden; }
+.scroll-line::after {
+  content: ''; position: absolute; top: -100%; left: 0;
+  width: 100%; height: 100%; background: var(--amber);
+  animation: scrollAnim 2s 1.6s infinite;
+}
+@keyframes scrollAnim { 0% { top: -100%; } 100% { top: 100%; } }
+.scroll-lbl { font-size: 9px; letter-spacing: .32em; text-transform: uppercase; color: var(--text-lo); }
+
+/* ── PROMISE ── */
+#promise {
+  background: var(--bg-mid); padding: 120px 64px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  border-top: 1px solid var(--border);
+}
+.eyebrow {
+  font-size: 10px; letter-spacing: .32em; text-transform: uppercase;
+  color: var(--amber); font-weight: 400; margin-bottom: 28px;
+  display: flex; align-items: center; gap: 14px;
+}
+.eyebrow::before { content: ''; width: 26px; height: 1px; background: var(--amber); flex-shrink: 0; }
+.section-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(42px, 4.5vw, 68px); font-weight: 300;
+  line-height: 1.08; color: var(--text-hi); letter-spacing: -.015em;
+}
+.section-h2 em { font-style: italic; color: var(--amber); }
+.section-body { margin-top: 26px; font-size: 15.5px; line-height: 1.82; color: var(--text-mid); max-width: 400px; }
+.promise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.p-card { background: var(--bg-card); padding: 34px 30px; transition: background .25s; }
+.p-card:hover { background: var(--bg-hover); }
+.p-icon { width: 34px; height: 34px; margin-bottom: 18px; color: var(--amber); }
+.p-title { font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--text-hi); font-weight: 500; margin-bottom: 10px; }
+.p-body { font-size: 13.5px; line-height: 1.7; color: var(--text-mid); }
+
+/* ── MENU ── */
+#menu { padding: 120px 0 120px 64px; overflow: hidden; background: var(--bg); border-top: 1px solid var(--border); }
+.menu-head { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; margin-bottom: 52px; padding-right: 64px; }
+.menu-tabs { display: flex; gap: 4px; }
+.m-tab {
+  font-family: 'DM Sans', sans-serif; font-size: 10.5px; letter-spacing: .15em;
+  text-transform: uppercase; font-weight: 400; color: var(--text-lo);
+  background: none; border: 1px solid transparent; padding: 8px 18px;
+  cursor: pointer; transition: color .2s, border-color .2s, background .2s;
+}
+.m-tab:hover { color: var(--text-hi); }
+.m-tab.active { color: var(--amber); border-color: var(--brd-mid); background: var(--bg-card); }
+.menu-rail {
+  display: flex; gap: 18px; overflow-x: auto;
+  scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px; padding-right: 64px; scrollbar-width: none;
+}
+.menu-rail::-webkit-scrollbar { display: none; }
+.m-card {
+  flex: 0 0 290px; scroll-snap-align: start;
+  background: var(--bg-card); border: 1px solid var(--border);
+  overflow: hidden; cursor: pointer; position: relative;
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+}
+.m-card:hover { transform: translateY(-5px); box-shadow: 0 24px 56px oklch(5% .01 40 / .55); border-color: var(--brd-mid); }
+.m-card-img { width: 100%; aspect-ratio: 4/3; overflow: hidden; position: relative; }
+.m-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; filter: brightness(.85); }
+.m-card:hover .m-card-img img { transform: scale(1.05); }
+.m-tag { position: absolute; top: 14px; left: 14px; z-index: 1; padding: 4px 11px; font-size: 8.5px; letter-spacing: .22em; text-transform: uppercase; font-weight: 500; background: var(--amber); color: var(--bg); }
+.m-body { padding: 22px 22px 18px; }
+.m-name { font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 400; color: var(--text-hi); line-height: 1.2; }
+.m-desc { font-size: 12.5px; line-height: 1.68; color: var(--text-mid); margin-top: 7px; }
+.m-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 18px; padding-top: 15px; border-top: 1px solid var(--border); }
+.m-price { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--amber); }
+.add-btn {
+  width: 32px; height: 32px; border: 1px solid var(--brd-mid);
+  background: transparent; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: var(--text-mid); line-height: 1;
+  transition: background .2s, border-color .2s, color .2s;
+}
+.add-btn:hover { background: var(--amber); border-color: var(--amber); color: var(--bg); }
+.add-btn.added { background: var(--amber); border-color: var(--amber); color: var(--bg); font-size: 14px; }
+.menu-foot { display: flex; align-items: center; gap: 36px; margin-top: 48px; padding-right: 64px; }
+.btn-outline {
+  font-family: 'DM Sans', sans-serif; font-size: 10.5px; letter-spacing: .2em;
+  text-transform: uppercase; font-weight: 500; color: var(--text-hi);
+  text-decoration: none; border: 1px solid var(--brd-mid); padding: 13px 28px;
+  display: flex; align-items: center; gap: 10px;
+  transition: background .25s, border-color .25s, color .25s;
+}
+.btn-outline:hover { background: var(--amber); border-color: var(--amber); color: var(--bg); }
+.cart-pill {
+  background: var(--bg-card); border: 1px solid var(--brd-mid);
+  color: var(--text-mid); padding: 12px 22px;
+  display: none; align-items: center; gap: 10px;
+  font-size: 12px; letter-spacing: .08em;
+}
+.cart-pill.show { display: flex; }
+.cart-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--amber); flex-shrink: 0; animation: pulse 2s infinite; }
+
+/* ── VISIT ── */
+#visit {
+  background: var(--bg-mid); padding: 120px 64px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  border-top: 1px solid var(--border);
+}
+.visit-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 3.8vw, 58px); font-weight: 300;
+  line-height: 1.12; color: var(--text-hi); letter-spacing: -.01em; margin-bottom: 48px;
+}
+.visit-h2 em { font-style: italic; color: var(--amber); }
+.reviews { display: flex; flex-direction: column; gap: 20px; }
+.review { background: var(--bg-card); border: 1px solid var(--border); padding: 28px 28px 24px; position: relative; transition: border-color .25s; }
+.review:hover { border-color: var(--brd-mid); }
+.review-qm { font-family: 'Cormorant Garamond', serif; font-size: 64px; line-height: 1; color: var(--amber-lo); position: absolute; top: 8px; left: 24px; opacity: .55; pointer-events: none; }
+.review-stars { color: var(--amber); font-size: 11px; margin-bottom: 10px; letter-spacing: 2px; }
+.review-text { font-size: 14.5px; line-height: 1.78; color: var(--text-mid); font-style: italic; padding-top: 24px; }
+.review-author { margin-top: 16px; font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--amber); font-weight: 500; }
+.visit-right { display: flex; flex-direction: column; gap: 20px; }
+.visit-img { flex: 1; min-height: 260px; overflow: hidden; position: relative; }
+.visit-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.7); transition: transform .6s; display: block; }
+.visit-img:hover img { transform: scale(1.03); }
+.visit-info { background: var(--bg-card); border: 1px solid var(--border); padding: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.vi-label { font-size: 9px; letter-spacing: .32em; text-transform: uppercase; color: var(--amber); font-weight: 500; margin-bottom: 12px; }
+.vi-text { font-size: 13.5px; line-height: 1.78; color: var(--text-mid); }
+.vi-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--text-lo); padding-bottom: 8px; margin-bottom: 8px; border-bottom: 1px solid var(--border); }
+.vi-row:last-child { border-bottom: none; margin: 0; padding: 0; }
+.vi-row span:last-child { color: var(--text-hi); }
+.btn-dir {
+  grid-column: 1 / -1; font-family: 'DM Sans', sans-serif;
+  font-size: 10px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500;
+  color: var(--text-hi); background: transparent; border: 1px solid var(--brd-mid);
+  padding: 12px 22px; cursor: pointer; display: flex; align-items: center; gap: 10px;
+  width: fit-content; transition: background .25s, border-color .25s, color .25s;
+}
+.btn-dir:hover { background: var(--amber); border-color: var(--amber); color: var(--bg); }
+
+/* ── CTA ── */
+#cta {
+  position: relative; overflow: hidden;
+  background: var(--bg); border-top: 1px solid var(--border);
+  display: grid; grid-template-columns: 1fr 1fr; min-height: 600px;
+}
+.cta-img-col { position: relative; overflow: hidden; }
+.cta-img-col img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(.55); }
+.cta-img-col::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, transparent 55%, var(--bg) 100%); }
+.cta-text-col { display: flex; flex-direction: column; justify-content: center; padding: 100px 64px 100px 60px; position: relative; z-index: 1; }
+.cta-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(50px, 5.5vw, 88px); font-weight: 300;
+  line-height: 1.04; color: var(--text-hi); letter-spacing: -.02em;
+}
+.cta-h2 em { font-style: italic; color: var(--amber); }
+.cta-sub { margin-top: 22px; font-size: 15.5px; line-height: 1.75; color: var(--text-mid); max-width: 340px; }
+.cta-btns { margin-top: 44px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+
+/* ── FOOTER ── */
+footer {
+  background: oklch(8% .013 40); border-top: 1px solid var(--border);
+  padding: 64px; display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 56px; align-items: start;
+}
+.f-logo-name { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--text-hi); display: block; margin-bottom: 3px; }
+.f-logo-sub { font-size: 8px; letter-spacing: .4em; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 18px; }
+.f-tagline { font-size: 13px; color: var(--text-lo); line-height: 1.65; max-width: 210px; }
+.f-col-h { font-size: 9px; letter-spacing: .32em; text-transform: uppercase; color: var(--amber); font-weight: 500; margin-bottom: 18px; }
+.f-links { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.f-links a { font-size: 13px; color: var(--text-lo); text-decoration: none; transition: color .2s; }
+.f-links a:hover { color: var(--text-hi); }
+.f-hr { display: flex; justify-content: space-between; gap: 16px; font-size: 12.5px; color: var(--text-lo); margin-bottom: 9px; }
+.f-hr span:last-child { color: var(--text-mid); }
+.f-bottom { grid-column: 1 / -1; padding-top: 36px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+.f-copy { font-size: 11px; color: var(--text-lo); letter-spacing: .06em; }
+.f-social { display: flex; gap: 22px; }
+.f-social a {
+  font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--text-lo); text-decoration: none; transition: color .2s;
+  display: flex; align-items: center; gap: 6px;
+}
+.f-social a:hover { color: var(--amber); }
+
+/* ── CART SIDEBAR ── */
+.sb-overlay {
+  position: fixed; inset: 0;
+  background: oklch(5% .01 40 / .65); backdrop-filter: blur(4px);
+  z-index: 199; opacity: 0; pointer-events: none; transition: opacity .4s;
+}
+.sb-overlay.open { opacity: 1; pointer-events: all; }
+.sidebar {
+  position: fixed; right: 0; top: 0; bottom: 0; width: 360px;
+  background: var(--bg-mid); border-left: 1px solid var(--border);
+  z-index: 200; display: flex; flex-direction: column;
+  transform: translateX(100%); transition: transform .42s cubic-bezier(.4,0,.2,1);
+  box-shadow: -24px 0 80px oklch(4% .01 40 / .5);
+}
+.sidebar.open { transform: translateX(0); }
+.sb-head { padding: 26px 30px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+.sb-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 300; color: var(--text-hi); }
+.sb-close { background: none; border: none; cursor: pointer; color: var(--text-lo); font-size: 19px; line-height: 1; transition: color .2s; }
+.sb-close:hover { color: var(--text-hi); }
+.sb-items { flex: 1; overflow-y: auto; padding: 22px 30px; }
+.sb-empty { text-align: center; padding: 60px 0; font-size: 14px; color: var(--text-lo); line-height: 1.7; }
+.sb-item { display: flex; justify-content: space-between; align-items: start; padding: 15px 0; border-bottom: 1px solid var(--border); gap: 14px; }
+.sb-item-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--text-hi); font-weight: 300; }
+.sb-item-price { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--amber); white-space: nowrap; }
+.sb-foot { padding: 22px 30px; border-top: 1px solid var(--border); }
+.sb-total { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 18px; }
+.sb-total-lbl { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--text-lo); }
+.sb-total-val { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--text-hi); }
+.btn-checkout {
+  width: 100%; font-family: 'DM Sans', sans-serif;
+  font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase;
+  font-weight: 500; background: var(--amber); color: var(--bg);
+  border: none; padding: 16px; cursor: pointer; transition: background .25s;
+}
+.btn-checkout:hover { background: oklch(75% .12 70); }
+
+/* ── FLOATING CART BUTTON ── */
+.float-cart {
+  position: fixed; bottom: 30px; right: 30px;
+  background: var(--amber); color: var(--bg); border: none; cursor: pointer;
+  display: flex; align-items: center; gap: 10px; padding: 13px 22px;
+  font-family: 'DM Sans', sans-serif; font-size: 10.5px; letter-spacing: .15em;
+  text-transform: uppercase; z-index: 98;
+  opacity: 0; pointer-events: none;
+  transition: opacity .3s, transform .25s, background .2s;
+  box-shadow: 0 8px 32px oklch(68% .13 68 / .28);
+}
+.float-cart.show { opacity: 1; pointer-events: all; }
+.float-cart:hover { background: oklch(75% .12 70); transform: translateY(-2px); }
+.fc-count {
+  background: var(--bg); color: var(--amber);
+  width: 21px; height: 21px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 600;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { to { opacity: 1; } }
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.on { opacity: 1; transform: none; }
+.d1 { transition-delay: .12s; }
+.d2 { transition-delay: .24s; }
+.d3 { transition-delay: .36s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 920px) {
+  #hero, #promise, #visit, #cta, footer { grid-template-columns: 1fr; }
+  .menu-head { grid-template-columns: 1fr; gap: 20px; }
+  nav { padding: 18px 24px; }
+  nav.scrolled { padding: 13px 24px; }
+  .nav-links { display: none; }
+  .hero-left { padding: 44px 24px; }
+  .hero-right { min-height: 320px; }
+  #menu { padding: 80px 0 80px 24px; }
+  .menu-head, .menu-foot { padding-right: 24px; }
+  .menu-rail { padding-right: 24px; }
+  #promise, #visit { padding: 80px 24px; }
+  #cta .cta-img-col { min-height: 300px; }
+  #cta .cta-text-col { padding: 64px 24px; }
+  footer { padding: 44px 24px; grid-template-columns: 1fr 1fr; }
+  .sidebar { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <a href="#" class="nav-logo" aria-label="Maren Coffee home">
+    <span class="nav-logo-name">Maren Coffee</span>
+    <span class="nav-logo-sub">Est. 2019 · Portland</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#visit">Visit</a></li>
+    <li><a href="#promise">Our Story</a></li>
+    <li><a href="#cta">Journal</a></li>
+  </ul>
+  <button class="nav-order" onclick="openCart()" aria-label="Open order cart">Order →</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero" aria-label="Hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Specialty Coffee</div>
+    <h1 class="hero-h1">Slow craft,<br><em>every</em><br>morning.</h1>
+    <p class="hero-sub">We source thoughtfully, roast in small batches, and bake fresh every day. Good coffee, honest food, and a warm welcome — always.</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-fill">See the Menu</a>
+      <a href="#visit" class="btn-text">
+        Find us
+        <svg width="16" height="9" viewBox="0 0 16 9" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="0" y1="4.5" x2="14" y2="4.5"/><polyline points="10,0.5 14,4.5 10,8.5"/></svg>
+      </a>
+    </div>
+    <div class="hero-stats" aria-label="Key stats">
+      <div><div class="stat-n">12+</div><div class="stat-l">Origins</div></div>
+      <div><div class="stat-n">7am</div><div class="stat-l">Opens daily</div></div>
+      <div><div class="stat-n">4.9★</div><div class="stat-l">Guest rating</div></div>
+    </div>
+    <div class="scroll-ind" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span class="scroll-lbl">Scroll</span>
+    </div>
+  </div>
+  <div class="hero-right" role="img" aria-label="Barista pouring latte art in dark cafe">
+    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1400&q=85&fit=crop" alt="Barista pouring latte art in dark cafe" loading="eager">
+    <div class="hero-badge" aria-label="Currently open">
+      <div class="badge-row"><div class="badge-dot" aria-hidden="true"></div>Open Now</div>
+      <div class="badge-time">Until 6:00 PM</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMISE -->
+<section id="promise" aria-label="Our promise">
+  <div class="reveal">
+    <div class="eyebrow">Our Promise</div>
+    <h2 class="section-h2">Local, slow,<br>and made <em>right.</em></h2>
+    <p class="section-body">We source thoughtfully from single-origin farms, roast weekly in our back kitchen, and bake everything from scratch each morning. This is what good coffee and honest hospitality looks like.</p>
+  </div>
+  <div class="promise-grid reveal d2">
+    <div class="p-card">
+      <svg class="p-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <circle cx="18" cy="18" r="14"/><path d="M18 10v8l5 3"/>
+      </svg>
+      <div class="p-title">Roasted Weekly</div>
+      <div class="p-body">Small batches, roasted fresh every Tuesday and Friday. Big care in every bag.</div>
+    </div>
+    <div class="p-card">
+      <svg class="p-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M8 28L8 14Q8 8 14 8L22 8Q28 8 28 14L28 28"/><path d="M5 28L31 28"/><path d="M28 16Q33 16 33 20Q33 24 28 24"/>
+      </svg>
+      <div class="p-title">Pastries Daily</div>
+      <div class="p-body">Baked in-house from 5am. Croissants, scones, and seasonal specials — served fresh.</div>
+    </div>
+    <div class="p-card">
+      <svg class="p-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M7 18Q7 8 18 8Q29 8 29 18Q29 28 18 28Q7 28 7 18z"/>
+        <path d="M14 22Q16 26 18 24Q20 26 22 22"/>
+        <circle cx="14" cy="15" r="1.5" fill="currentColor"/><circle cx="22" cy="15" r="1.5" fill="currentColor"/>
+      </svg>
+      <div class="p-title">Open from 7am</div>
+      <div class="p-body">Coffee, pastries, and a place to land. Seven days a week, rain or shine.</div>
+    </div>
+    <div class="p-card">
+      <svg class="p-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <circle cx="18" cy="14" r="7"/><path d="M6 32C6 24 30 24 30 32"/>
+        <polyline points="22,12 24,14 28,10"/>
+      </svg>
+      <div class="p-title">People First</div>
+      <div class="p-body">We know your name and your order. Warm hospitality is the heart of what we do.</div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" aria-label="Menu">
+  <div class="menu-head">
+    <div>
+      <div class="eyebrow reveal">Signature Picks</div>
+      <h2 class="section-h2 reveal d1">The regulars know <em>these</em> by heart.</h2>
+      <p class="section-body reveal d2" style="margin-top:14px;">Thoughtfully made classics, perfected over time.</p>
+    </div>
+    <div class="menu-tabs reveal d2" role="tablist" aria-label="Menu categories">
+      <button class="m-tab active" role="tab" aria-selected="true" onclick="filterMenu('coffee', this)">Coffee</button>
+      <button class="m-tab" role="tab" aria-selected="false" onclick="filterMenu('cold', this)">Cold</button>
+      <button class="m-tab" role="tab" aria-selected="false" onclick="filterMenu('food', this)">Food</button>
+    </div>
+  </div>
+
+  <div class="menu-rail" id="menu-rail" role="list">
+    <!-- COFFEE -->
+    <article class="m-card" data-cat="coffee" role="listitem">
+      <div class="m-card-img">
+        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&q=80&fit=crop" alt="Flat white coffee" loading="lazy">
+      </div>
+      <div class="m-body">
+        <div class="m-name">Flat White</div>
+        <div class="m-desc">Silky microfoam over a bold ristretto. Balanced and comforting — a house favourite.</div>
+        <div class="m-foot">
+          <div class="m-price">$4.50</div>
+          <button class="add-btn" onclick="addToOrder('Flat White', 4.50, this)" aria-label="Add Flat White to order">+</button>
+        </div>
+      </div>
+    </article>
+    <article class="m-card" data-cat="coffee" role="listitem">
+      <div class="m-card-img">
+        <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=600&q=80&fit=crop" alt="Cortado coffee" loading="lazy">
+        <div class="m-tag">New</div>
+      </div>
+      <div class="m-body">
+        <div class="m-name">Cortado</div>
+        <div class="m-desc">Equal parts espresso and steamed milk. Intense, smooth, and beautifully small.</div>
+        <div class="m-foot">
+          <div class="m-price">$4.00</div>
+          <button class="add-btn" onclick="addToOrder('Cortado', 4.00, this)" aria-label="Add Cortado to order">+</button>
+        </div>
+      </div>
+    </article>
+    <article class="m-card" data-cat="coffee" role="listitem">
+      <div class="m-card-img">
+        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600&q=80&fit=crop" alt="House Mocha" loading="lazy">
+      </div>
+      <div class="m-body">
+        <div class="m-name">House Mocha</div>
+        <div class="m-desc">Rich dark chocolate, smooth espresso, finished with a whisper of sea salt.</div>
+        <div class="m-foot">
+          <div class="m-price">$4.75</div>
+          <button class="add-btn" onclick="addToOrder('House Mocha', 4.75, this)" aria-label="Add House Mocha to order">+</button>
+        </div>
+      </div>
+    </article>
+    <article class="m-card" data-cat="coffee" role="listitem">
+      <div class="m-card-img">
+        <img src="https://images.unsplash.com/photo-1499638673689-79a0b5115d87?w=600&q=80&fit=crop" alt="Pour over coffee" loading="lazy">
+      </div>
+      <div class="m-body">
+        <div class="m-name">Pour Over</div>
+        <div class="m-desc">Single-origin filter. Delicate, bright, full of nuance. Brewed to order, every time.</div>
+        <div class="m-foot">
+          <div class="m-price">$5.50</div>
+          <button class="add-btn" onclick="addToOrder('Pour Over', 5.50, this)" aria-label="Add Pour Over to order">+</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- COLD -->
+    <article class="m-card" data-cat="cold" style="display:none" role="listitem">
+      <div class="m-card-img">
+        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&q=80&fit=crop" alt="Espresso tonic" loading="lazy">
+        <div class="m-tag">Fan Fav</div>
+      </div>
+      <div class="m-body">
+        <div class="m-name">Espresso Tonic</div>
+        <div class="m-desc">Citrus, sparkle, and our signature espresso. Bracing and bright on a warm day.</div>
+        <div class="m-foot">
+          <div class="m-price">$5.25</div>
+          <button class="add-btn" onclick="addToOrder('Espresso Tonic', 5.25, this)" aria-label="Add Espresso Tonic to order">+</button>
+        </div>
+      </div>
+    </article>
+    <article class="m-card" data-cat="cold" style="display:none" role="listitem">
+      <div class="m-card-img">
+        <img src="https://images.unsplash.com/photo-1568649929103-28ffbefaca1e?w=600&q=80&fit=crop" alt="Cold brew coffee" loading="lazy">
+      </div>
+      <div class="m-body">
+        <div class="m-name">Cold Brew</div>
+        <div class="m-desc">Steeped 20 hours. Smooth, bold, naturally sweet — no ice needed, but welcomed.</div>
+        <div class="m-foot">
+          <div class="m-price">$5.00</div>
+          <button class="add-btn" onclick="addToOrder('Cold Brew', 5.00, this)" aria-label="Add Cold Brew to order">+</button>
+        </div>
+      </div>
+    </article>
+    <article class="m-card" data-cat="cold" style="display:none" role="listitem">
+      <div class="m-card-img">
+        <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=600&q=80&fit=crop" alt="Iced oat latte" loading="lazy">
+      </div>
+      <div class="m-body">
+        <div class="m-name">Iced Oat Latte</div>
+        <div class="m-desc">House espresso over oat milk and ice. Creamy, smooth, and perfect all year round.</div>
+        <div class="m-foot">
+          <div class="m-price">$5.50</div>
+          <button class="add-btn" onclick="addToOrder('Iced Oat Latte', 5.50, this)" aria-label="Add Iced Oat Latte to order">+</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- FOOD -->
+    <article class="m-card" data-cat="food" style="display:none" role="listitem">
+      <div class="m-card-img">
+        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80&fit=crop" alt="Butter croissant" loading="lazy">
+      </div>
+      <div class="m-body">
+        <div class="m-name">Butter Croissant</div>
+        <div class="m-desc">Flaky, golden, laminated with quality butter. Baked fresh every morning from 5am.</div>
+        <div class="m-foot">
+          <div class="m-price">$3.75</div>
+          <button class="add-btn" onclick="addToOrder('Butter Croissant', 3.75, this)" aria-label="Add Butter Croissant to order">+</button>
+        </div>
+      </div>
+    </article>
+    <article class="m-card" data-cat="food" style="display:none" role="listitem">
+      <div class="m-card-img">
+        <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=600&q=80&fit=crop" alt="Almond croissant" loading="lazy">
+        <div class="m-tag">Popular</div>
+      </div>
+      <div class="m-body">
+        <div class="m-name">Almond Croissant</div>
+        <div class="m-desc">Twice-baked with almond cream. Crisp, fragrant, dusted with powdered sugar.</div>
+        <div class="m-foot">
+          <div class="m-price">$4.25</div>
+          <button class="add-btn" onclick="addToOrder('Almond Croissant', 4.25, this)" aria-label="Add Almond Croissant to order">+</button>
+        </div>
+      </div>
+    </article>
+    <article class="m-card" data-cat="food" style="display:none" role="listitem">
+      <div class="m-card-img">
+        <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=600&q=80&fit=crop" alt="Avocado toast" loading="lazy">
+      </div>
+      <div class="m-body">
+        <div class="m-name">Avocado Toast</div>
+        <div class="m-desc">House sourdough, whipped ricotta, avocado, lemon oil. A daily ritual for many regulars.</div>
+        <div class="m-foot">
+          <div class="m-price">$9.00</div>
+          <button class="add-btn" onclick="addToOrder('Avocado Toast', 9.00, this)" aria-label="Add Avocado Toast to order">+</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="menu-foot reveal">
+    <a href="#" class="btn-outline">
+      Full Menu
+      <svg width="13" height="9" viewBox="0 0 13 9" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="0" y1="4.5" x2="11" y2="4.5"/><polyline points="7,0.5 11,4.5 7,8.5"/></svg>
+    </a>
+    <div class="cart-pill" id="cart-pill" aria-live="polite">
+      <div class="cart-dot" aria-hidden="true"></div>
+      <span id="cart-summary">0 items · $0.00</span>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT + REVIEWS -->
+<section id="visit" aria-label="Visit and reviews">
+  <div class="reveal">
+    <div class="eyebrow">What Our Guests Say</div>
+    <h2 class="visit-h2">Good coffee, <em>good</em> reasons to return.</h2>
+    <div class="reviews">
+      <blockquote class="review">
+        <div class="review-qm" aria-hidden="true">"</div>
+        <div class="review-stars" aria-label="5 stars">★★★★★</div>
+        <p class="review-text">Maren is my morning ritual. The coffee is consistently exceptional and the space feels like a quiet pause in the city. I'm here every single day.</p>
+        <footer class="review-author">— Emily R., Portland</footer>
+      </blockquote>
+      <blockquote class="review">
+        <div class="review-qm" aria-hidden="true">"</div>
+        <div class="review-stars" aria-label="5 stars">★★★★★</div>
+        <p class="review-text">The attention to detail is unmatched. You can taste the care in every cup. The almond croissant is the best I've had outside of Paris.</p>
+        <footer class="review-author">— James T., Local Guide</footer>
+      </blockquote>
+    </div>
+  </div>
+  <div class="visit-right reveal d2">
+    <div class="visit-img">
+      <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=900&q=80&fit=crop" alt="Cafe interior with warm lighting" loading="lazy">
+    </div>
+    <div class="visit-info">
+      <div>
+        <div class="vi-label">Address</div>
+        <address class="vi-text" style="font-style:normal;">42 Maren Street<br>Portland, OR 97201</address>
+      </div>
+      <div>
+        <div class="vi-label">Hours</div>
+        <div class="vi-row"><span>Mon – Fri</span><span>7:00am – 6:00pm</span></div>
+        <div class="vi-row"><span>Sat – Sun</span><span>8:00am – 6:00pm</span></div>
+      </div>
+      <a href="https://maps.google.com/?q=42+Maren+Street+Portland+OR+97201" target="_blank" rel="noopener noreferrer" class="btn-dir" style="text-decoration:none;">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polygon points="6.5,1 12,12 6.5,9.5 1,12"/></svg>
+        Get Directions
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" aria-label="Call to action">
+  <div class="cta-img-col" role="img" aria-label="Espresso close-up">
+    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1000&q=80&fit=crop" alt="Espresso close-up in dark setting" loading="lazy">
+  </div>
+  <div class="cta-text-col reveal">
+    <div class="eyebrow">Come Visit</div>
+    <h2 class="cta-h2">See you on<br><em>Maren</em><br>Street.</h2>
+    <p class="cta-sub">Good coffee. Warm welcome. Fresh pastry. Stop by — we'd love to see you.</p>
+    <div class="cta-btns">
+      <a href="#visit" class="btn-fill">
+        Visit Us Today
+        <svg width="13" height="9" viewBox="0 0 13 9" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="0" y1="4.5" x2="11" y2="4.5"/><polyline points="7,0.5 11,4.5 7,8.5"/></svg>
+      </a>
+      <a href="#menu" class="btn-text">
+        Browse the Menu
+        <svg width="13" height="9" viewBox="0 0 13 9" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="0" y1="4.5" x2="11" y2="4.5"/><polyline points="7,0.5 11,4.5 7,8.5"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <a href="#" class="nav-logo" aria-label="Maren Coffee home" style="display:inline-block;text-decoration:none;">
+      <span class="f-logo-name">Maren Coffee</span>
+      <span class="f-logo-sub">Est. 2019 · Portland, OR</span>
+    </a>
+    <p class="f-tagline">Specialty coffee, fresh pastries, and a warm place to be. Seven days a week.</p>
+  </div>
+  <div>
+    <div class="f-col-h">Explore</div>
+    <ul class="f-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#promise">Our Story</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <li><a href="#">Journal</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="f-col-h">Hours</div>
+    <div class="f-hr"><span>Mon – Fri</span><span>7am – 6pm</span></div>
+    <div class="f-hr"><span>Sat – Sun</span><span>8am – 6pm</span></div>
+  </div>
+  <div>
+    <div class="f-col-h">Contact</div>
+    <ul class="f-links">
+      <li><a href="mailto:hello@marencoffee.com">hello@marencoffee.com</a></li>
+      <li><a href="https://maps.google.com/?q=42+Maren+Street+Portland+OR+97201" target="_blank" rel="noopener noreferrer">42 Maren Street</a></li>
+      <li><a href="https://instagram.com/marencoffee" target="_blank" rel="noopener noreferrer">@marencoffee</a></li>
+    </ul>
+  </div>
+  <div class="f-bottom">
+    <div class="f-copy">© 2026 Maren Coffee. All rights reserved.</div>
+    <div class="f-social">
+      <a href="https://instagram.com/marencoffee" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1.5" y="1.5" width="10" height="10" rx="3"/><circle cx="6.5" cy="6.5" r="2.2"/><circle cx="10" cy="3" r="0.5" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+      <a href="mailto:hello@marencoffee.com" aria-label="Subscribe to newsletter">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1" y="3" width="11" height="8" rx="1"/><path d="M1 4l5.5 4L12 4"/></svg>
+        Newsletter
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- CART SIDEBAR OVERLAY -->
+<div class="sb-overlay" id="sb-overlay" onclick="closeCart()" role="presentation"></div>
+
+<!-- CART SIDEBAR -->
+<aside class="sidebar" id="sidebar" aria-label="Your order" aria-modal="true" role="dialog">
+  <div class="sb-head">
+    <div class="sb-title">Your Order</div>
+    <button class="sb-close" onclick="closeCart()" aria-label="Close cart">✕</button>
+  </div>
+  <div class="sb-items" id="sb-items">
+    <div class="sb-empty" id="sb-empty">Nothing here yet.<br>Add something from the menu.</div>
+  </div>
+  <div class="sb-foot">
+    <div class="sb-total">
+      <span class="sb-total-lbl">Total</span>
+      <span class="sb-total-val" id="sb-total">$0.00</span>
+    </div>
+    <button class="btn-checkout" onclick="handleCheckout()">Proceed to Checkout →</button>
+  </div>
+</aside>
+
+<!-- FLOATING CART BUTTON -->
+<button class="float-cart" id="float-cart" onclick="openCart()" aria-label="View order">
+  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 1h2l2 7.5h7l2-5.5H4"/><circle cx="6.5" cy="12.5" r="1" fill="currentColor" stroke="none"/><circle cx="11.5" cy="12.5" r="1" fill="currentColor" stroke="none"/></svg>
+  Order
+  <span class="fc-count" id="fc-count" aria-label="items in cart">0</span>
+</button>
+
+<script>
+// ── NAV SCROLL ──
+const mainNav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  mainNav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// ── REVEAL ON SCROLL ──
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// ── MENU FILTER ──
+function filterMenu(cat, btn) {
+  document.querySelectorAll('.m-tab').forEach(t => {
+    t.classList.remove('active');
+    t.setAttribute('aria-selected', 'false');
+  });
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected', 'true');
+  document.getElementById('menu-rail').scrollLeft = 0;
+  document.querySelectorAll('.m-card').forEach(c => {
+    const show = c.dataset.cat === cat;
+    c.style.display = show ? 'block' : 'none';
+    if (show) {
+      c.style.animation = 'none';
+      requestAnimationFrame(() => { c.style.animation = 'fadeIn .4s forwards'; });
+    }
+  });
+}
+
+// ── CART ──
+let cart = [];
+
+function addToOrder(name, price, btn) {
+  const idx = cart.findIndex(i => i.name === name);
+  if (idx >= 0) {
+    cart.splice(idx, 1);
+    btn.classList.remove('added');
+    btn.textContent = '+';
+    btn.setAttribute('aria-label', `Add ${name} to order`);
+  } else {
+    cart.push({ name, price });
+    btn.classList.add('added');
+    btn.textContent = '✓';
+    btn.setAttribute('aria-label', `Remove ${name} from order`);
+    btn.style.transform = 'scale(1.25)';
+    setTimeout(() => { btn.style.transform = ''; }, 200);
+  }
+  updateCart();
+}
+
+function updateCart() {
+  const count = cart.length;
+  const total = cart.reduce((s, i) => s + i.price, 0);
+
+  const floatBtn = document.getElementById('float-cart');
+  floatBtn.classList.toggle('show', count > 0);
+  document.getElementById('fc-count').textContent = count;
+
+  const pill = document.getElementById('cart-pill');
+  if (count > 0) {
+    pill.classList.add('show');
+    document.getElementById('cart-summary').textContent = `${count} item${count !== 1 ? 's' : ''} · $${total.toFixed(2)}`;
+  } else {
+    pill.classList.remove('show');
+  }
+
+  document.getElementById('sb-total').textContent = `$${total.toFixed(2)}`;
+
+  const itemsEl = document.getElementById('sb-items');
+  const emptyEl = document.getElementById('sb-empty');
+  emptyEl.style.display = count ? 'none' : '';
+  itemsEl.querySelectorAll('.sb-item').forEach(el => el.remove());
+  cart.forEach(item => {
+    const el = document.createElement('div');
+    el.className = 'sb-item';
+    el.innerHTML = `<div class="sb-item-name">${item.name}</div><div class="sb-item-price">$${item.price.toFixed(2)}</div>`;
+    itemsEl.appendChild(el);
+  });
+}
+
+function openCart() {
+  document.getElementById('sidebar').classList.add('open');
+  document.getElementById('sb-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCart() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sb-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleCheckout() {
+  if (cart.length === 0) return;
+  alert(`Thanks for your order! Total: $${cart.reduce((s, i) => s + i.price, 0).toFixed(2)}\n\nSee you soon at Maren Coffee.`);
+  cart = [];
+  document.querySelectorAll('.add-btn.added').forEach(btn => {
+    btn.classList.remove('added');
+    btn.textContent = '+';
+    const name = btn.closest('.m-card').querySelector('.m-name').textContent;
+    btn.setAttribute('aria-label', `Add ${name} to order`);
+  });
+  updateCart();
+  closeCart();
+}
+
+// ── KEYBOARD NAVIGATION ──
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeCart();
+});
+</script>
+</body>
+</html>
