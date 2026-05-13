@@ -228,6 +228,118 @@
   );
 }
 
+.portfolioDetailCard {
+  min-height: 0;
+  overflow: visible;
+}
+
+.portfolioDetailGrid {
+  grid-template-columns: 1fr;
+}
+
+.portfolioDetailCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.72;
+  border-radius: inherit;
+}
+
+.portfolioTeal::before {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(29, 158, 117, 0.58), transparent 32%),
+    linear-gradient(135deg, #081512 0%, #0f2a22 45%, #080b0c 100%);
+}
+
+.portfolioBlue::before {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(55, 138, 221, 0.58), transparent 32%),
+    linear-gradient(135deg, #07111d 0%, #102a47 45%, #080b0c 100%);
+}
+
+.portfolioPurple::before {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(127, 119, 221, 0.58), transparent 32%),
+    linear-gradient(135deg, #100d1f 0%, #282052 45%, #080b0c 100%);
+}
+
+.portfolioDetailOverlay {
+  position: relative;
+  inset: auto;
+  z-index: 1;
+  justify-content: flex-start;
+  gap: 1rem;
+  min-height: 0;
+  padding: 1.8rem;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+}
+
+.portfolioDetailHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.portfolioBadge {
+  flex-shrink: 0;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.portfolioDescription {
+  max-width: 90ch;
+  color: rgba(242, 233, 221, 0.82);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.portfolioDivider {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid rgba(242, 233, 221, 0.16);
+  margin: 0;
+}
+
+.portfolioTech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.portfolioChip {
+  padding: 0.28rem 0.55rem;
+  border-radius: 6px;
+  color: rgba(242, 233, 221, 0.9);
+  font-size: 0.72rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.portfolioFeatures {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+  padding-left: 1rem;
+  color: rgba(242, 233, 221, 0.9);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.portfolioFeatures li::marker {
+  color: var(--coral);
+}
+
 .nonVideoMeta {
   font-size: 0.78rem;
   color: rgba(242, 233, 221, 0.92);
