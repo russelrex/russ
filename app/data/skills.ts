@@ -25,6 +25,7 @@ export const SKILLS: SkillGroup[] = [
       "Node.js",
       "NestJS",
       "Express",
+      "Supabase",
       "MongoDB",
       "MySQL",
       "PHP",
