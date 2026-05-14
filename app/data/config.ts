@@ -3,7 +3,7 @@ export const siteConfig = {
   title: "Full Stack Developer",
   location: "Philippines",
   email: "russelrex_23@yahoo.com",
-  linkedin: "https://linkedin.com/in/russelrex",
+  linkedin: "https://linkedin.com/in/russel-rex-onyot-289411185",
   github: "https://github.com/russelrex",
   available: true,
   bio: [
