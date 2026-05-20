@@ -1,81 +1,63 @@
 import "../global.css";
-import { Inter, Sora } from "next/font/google";
-import LocalFont from "@next/font/local";
+import { Inter, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { Metadata } from "next";
+import ScrollProgress from "./components/ScrollProgress";
+import RevealInit from "./components/RevealInit";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--nf-sans",
+  display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+  weight: "400",
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--nf-serif",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--nf-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
-    default: "russ",
-    template: "%s | russ",
+    default: "Russel Rex • Full-stack Developer",
+    template: "%s | Russel Rex",
   },
-  description: "FullStack Developer",
+  description: "Full-stack developer specializing in React, Next.js, Node.js, and React Native.",
   openGraph: {
-    title: "russ",
-    description:
-      "FullStack Developer",
-    url: "https://russ",
-    siteName: "russ",
-    images: [
-      {
-        url: "https://russ/og.png",
-        width: 1920,
-        height: 1080,
-      },
-    ],
+    title: "Russel Rex • Full-stack Developer",
+    description: "Full-stack developer specializing in React, Next.js, Node.js, and React Native.",
+    url: "https://russelrex.dev",
+    siteName: "Russel Rex",
+    images: [{ url: "/og.png", width: 1920, height: 1080 }],
     locale: "en-US",
     type: "website",
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  twitter: {
-    title: "Chronark",
-    card: "summary_large_image",
-  },
-  icons: {
-    shortcut: "/r.jpg",
-  },
+  robots: { index: true, follow: true },
+  icons: { shortcut: "/r.jpg" },
 };
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
 
-const interDisplay = Inter({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
-});
-
-const sora = Sora({
-  subsets: ["latin"],
-  variable: "--font-dm-sans",
-  display: "swap",
-});
-
-const calSans = LocalFont({
-  src: "../public/fonts/CalSans-SemiBold.ttf",
-  variable: "--font-calsans",
-});
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const fontVars = [inter.variable, instrumentSerif.variable, jetbrainsMono.variable].join(" ");
   return (
-    <html lang="en" className={[inter.variable, interDisplay.variable, sora.variable, calSans.variable].join(" ")}>
-      <head>
-      </head>
-      <body className={`${process.env.NODE_ENV === "development" ? "debug-screens" : undefined}`}>
+    <html lang="en" className={fontVars}>
+      <head />
+      <body style={{ fontFamily: "var(--nf-sans), ui-sans-serif, system-ui, sans-serif" }}>
+        <ScrollProgress />
+        <div className="bg-fx" aria-hidden="true">
+          <div className="bg-orb a" />
+          <div className="bg-orb b" />
+          <div className="bg-grid" />
+          <div className="bg-noise" />
+        </div>
+        <RevealInit />
         {children}
       </body>
     </html>

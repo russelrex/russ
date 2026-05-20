@@ -1,0 +1,69 @@
+/* === Sections === */
+
+/* HERO */
+.hero{padding:160px 0 100px;position:relative;overflow:hidden}
+.hero-inner{display:grid;gap:48px;position:relative}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+.hero h1{font-size:clamp(54px,9vw,148px);line-height:.92;letter-spacing:-0.045em;font-weight:600;margin:24px 0 0}
+.hero h1 .row{display:block}
+.hero h1 .serif{font-family:var(--font-serif);font-weight:400;font-style:italic;letter-spacing:-0.02em}
+.hero h1 .pill{display:inline-flex;align-items:center;gap:14px;vertical-align:middle;padding:8px 22px 10px;border-radius:999px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-2);font-size:clamp(28px,4.4vw,72px);font-weight:500;letter-spacing:-0.03em}
+.hero h1 .pill .swatches{display:inline-flex}
+.hero h1 .pill .swatches span{width:clamp(20px,2.4vw,38px);height:clamp(20px,2.4vw,38px);border-radius:50%;border:2px solid #fff;margin-left:-8px;box-shadow:0 1px 2px rgba(10,10,10,0.12)}
+.hero h1 .pill .swatches span:first-child{margin-left:0}
+.hero-meta{display:flex;align-items:center;gap:16px;color:var(--muted);font-size:13px}
+.hero-meta .sep{width:1px;height:14px;background:var(--line-strong)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 0;margin-top:40px}
+.hero-stats .stat{padding:0 24px;border-right:1px solid var(--line)}
+.hero-stats .stat:last-child{border-right:none}
+.hero-stats .num{font-size:clamp(28px,3vw,40px);font-weight:600;letter-spacing:-0.02em;line-height:1}
+.hero-stats .lbl{font-size:12px;color:var(--muted);margin-top:6px;letter-spacing:0.04em}
+@media (max-width:760px){
+  .hero{padding:120px 0 60px}
+  .hero-stats{grid-template-columns:repeat(2,1fr);gap:0}
+  .hero-stats .stat{padding:16px;border-bottom:1px solid var(--line)}
+  .hero-stats .stat:nth-child(2n){border-right:none}
+  .hero-stats .stat:nth-last-child(-n+2){border-bottom:none}
+}
+
+/* Floating tech badges */
+.badge{position:absolute;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;background:#fff;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:500;box-shadow:var(--shadow-2);will-change:transform;animation:float 8s ease-in-out infinite}
+.badge .glyph{width:18px;height:18px;border-radius:5px;display:grid;place-items:center;font-size:10px;font-weight:700;color:#fff}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@media (max-width:1100px){.badge{display:none}}
+
+/* MARQUEE */
+.marquee{padding:60px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,0.5)}
+.marquee-track{display:flex;gap:64px;animation:scroll 30s linear infinite;white-space:nowrap;align-items:center}
+.marquee-track .item{display:inline-flex;align-items:center;gap:14px;font-size:24px;font-weight:500;color:var(--ink-2);letter-spacing:-0.01em;opacity:.85}
+.marquee-track .item .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.marquee-track .item.serif{font-family:var(--font-serif);font-style:italic;font-size:30px;color:var(--ink)}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 32px))}}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:start;margin-top:64px}
+.about-portrait{position:relative;aspect-ratio:4/5;border-radius:var(--r-xl);overflow:hidden;background:linear-gradient(135deg,#e9e6ff,#cfd9ff 60%,#fef0ff);border:1px solid var(--line);box-shadow:var(--shadow-3)}
+.about-portrait .inner{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--font-serif);font-style:italic;font-size:240px;color:rgba(10,10,10,0.07);line-height:1}
+.about-portrait .floater{position:absolute;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:12.5px;font-weight:500;box-shadow:var(--shadow-2);display:inline-flex;align-items:center;gap:8px;z-index:2}
+.about-portrait .floater .live{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,0.18)}
+.about-portrait .floater.tl{top:18px;left:18px}
+.about-portrait .floater.br{bottom:18px;right:18px}
+.about-portrait .floater.bl{bottom:18px;left:18px}
+.about-bullets{margin-top:32px;display:grid;gap:14px}
+.about-bullets li{display:flex;gap:14px;align-items:flex-start;font-size:15.5px;color:var(--ink-2);line-height:1.5;list-style:none}
+.about-bullets li::before{content:"";width:18px;height:18px;border-radius:50%;background:var(--grad-soft);border:1px solid rgba(79,140,255,0.25);flex-shrink:0;margin-top:4px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none'><path d='M3 6.2L5 8L9 4' stroke='%234f8cff' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/></svg>");background-position:center;background-repeat:no-repeat}
+.about-bullets ul{margin:0;padding:0}
+@media (max-width:880px){.about-grid{grid-template-columns:1fr;gap:48px}}
+
+/* SKILLS */
+.skills-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
+.skill-card{padding:22px;display:flex;flex-direction:column;gap:14px;min-height:170px}
+.skill-card .icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:18px;font-weight:600;color:#fff;background:var(--ink);box-shadow:inset 0 0 0 1px rgba(255,255,255,0.18)}
+.skill-card .name{font-size:16px;font-weight:600;letter-spacing:-0.01em}
+.skill-card .meta{font-size:12.5px;color:var(--muted);margin-top:auto;display:flex;justify-content:space-between;align-items:center;font-family:var(--font-mono)}
+.skill-card .bar{height:4px;background:var(--surface-2);border-radius:99px;overflow:hidden;margin-top:8px}
+.skill-card .bar i{display:block;height:100%;background:var(--grad);border-radius:99px;transform-origin:left;animation:grow 1.2s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (max-width:880px){.skills-grid{grid-template-columns:repeat(2,1fr)}}

@@ -1,127 +1,128 @@
-"use client";
+import { stats } from "@/app/data/skills";
+import { FaReact, FaNodeJs, FaAngular } from "react-icons/fa";
+import { SiTypescript, SiMongodb, SiSupabase, SiMysql } from "react-icons/si";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { siteConfig } from "@/app/data/config";
-import { SKILLS } from "@/app/data/skills";
-import styles from "./Hero.module.css";
+const ArrowRight = () => (
+  <svg className="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M3 7h8m0 0L7.5 3.5M11 7l-3.5 3.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
-  visible: (delay: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.85, delay, ease: [0.22, 1, 0.36, 1] },
-  }),
+const ArrowOut = () => (
+  <svg className="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M4 10l6-6m0 0H5m5 0v5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+type BadgeProps = {
+  label: string;
+  icon: React.ReactNode;
+  style?: React.CSSProperties;
 };
 
-export default function Hero() {
-  const nameParts = siteConfig.name.split(" ");
-  const first = nameParts[0] ?? siteConfig.name;
-  const second = nameParts[1] ?? "";
-
+function Badge({ label, icon, style }: BadgeProps) {
   return (
-    <section id="hero" className={styles.hero}>
-      <div className={styles.gradient} aria-hidden="true" />
+    <div className="badge" style={style}>
+      <span className="glyph-icon" aria-hidden="true">{icon}</span>
+      {label}
+    </div>
+  );
+}
 
-      <div className={styles.shell}>
-        <div className={styles.inner}>
-          <motion.div
-            className={styles.photoWrap}
-            variants={fadeUp}
-            custom={0.3}
-            initial="hidden"
-            animate="visible"
-          >
-            <div className={styles.photo}>
-              <Image
-                src="/rr.jpg"
-                alt={siteConfig.name}
-                width={240}
-                height={240}
-                className={styles.photoImg}
-                priority
-              />
-            </div>
-          </motion.div>
+const badges: BadgeProps[] = [
+  {
+    label: "React",
+    icon: <FaReact style={{ color: "#61DAFB", width: 16, height: 16 }} />,
+    style: { top: "60px", right: "-10px", animationDelay: "0s" },
+  },
+  {
+    label: "TypeScript",
+    icon: <SiTypescript style={{ color: "#3178C6", width: 15, height: 15 }} />,
+    style: { top: "170px", right: "140px", animationDelay: "-2s" },
+  },
+  {
+    label: "Node.js",
+    icon: <FaNodeJs style={{ color: "#83CD29", width: 16, height: 16 }} />,
+    style: { bottom: "260px", right: "-20px", animationDelay: "-4s" },
+  },
+  {
+    label: "MongoDB",
+    icon: <SiMongodb style={{ color: "#47A248", width: 15, height: 15 }} />,
+    style: { bottom: "360px", right: "200px", animationDelay: "-6s" },
+  },
+  {
+    label: "Angular",
+    icon: <FaAngular style={{ color: "#DD0031", width: 16, height: 16 }} />,
+    style: { top: "300px", right: "60px", animationDelay: "-1s" },
+  },
+  {
+    label: "Supabase",
+    icon: <SiSupabase style={{ color: "#3ECF8E", width: 15, height: 15 }} />,
+    style: { bottom: "460px", right: "-10px", animationDelay: "-3s" },
+  },
+  {
+    label: "MySQL",
+    icon: <SiMysql style={{ color: "#00758F", width: 18, height: 18 }} />,
+    style: { bottom: "160px", right: "120px", animationDelay: "-5s" },
+  },
+];
 
-          <motion.div
-            className={styles.text}
-            variants={fadeUp}
-            custom={0.45}
-            initial="hidden"
-            animate="visible"
-          >
-            {siteConfig.available && (
-              <p className={styles.eyebrow}>Available for opportunities</p>
-            )}
-            <h1 className={styles.name}>
-              {first}
-              <br />
-              {second}
-            </h1>
-            <p className={styles.title}>{siteConfig.title}</p>
-            <p className={styles.desc}>
-              I build thoughtful digital products and deliver clean, intuitive user
-              experiences with scalable full-stack architecture.
-            </p>
-            <div className={styles.ctas}>
-              <a href="#projects" className="btn btn-coral">
-                View my work
-              </a>
-              <a href="#contact" className="btn btn-outline">
-                Get in touch
-              </a>
-            </div>
-          </motion.div>
-        </div>
+export default function Hero() {
+  return (
+    <section className="hero" id="hero">
+      <div className="container hero-inner">
 
-        <div id="skills" className={styles.skillsRegion}>
-          <motion.p
-            className={styles.skillsLabel}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          >
-            Capabilities
-          </motion.p>
-
-          <motion.h2
-            className={styles.skillsTitle}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            Skills &amp; Technologies
-          </motion.h2>
-
-          <div className={styles.skillsGrid}>
-            {SKILLS.map((group, i) => (
-              <motion.div
-                key={group.category}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  duration: 0.65,
-                  delay: 0.1 + i * 0.1,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              >
-                <h3 className={styles.skillGroupTitle}>{group.category}</h3>
-                <div className={styles.skillTags}>
-                  {group.skills.map((skill) => (
-                    <span key={skill} className={styles.skillTag}>
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+        <div className="hero-top reveal">
+          <div className="eyebrow">
+            <span className="dot" />
+            Open to opportunities
+          </div>
+          <div className="hero-meta">
+            <span>Based in Philippines</span>
+            <span className="sep" />
+            <span>UTC+8</span>
+            <span className="sep" />
+            <span>Open to remote</span>
           </div>
         </div>
+
+        <h1 className="reveal d1">
+          <span className="row">Building</span>
+          <span className="row">modern products</span>
+          <span className="row">
+            that <span className="grad-text">scale.</span>
+          </span>
+        </h1>
+
+        <p className="lede reveal d2">
+          I&apos;m <strong>Russel Rex</strong> • a full-stack developer specializing in React,
+          Next.js, Node.js, and React Native. I help teams ship clean, fast, opinionated software
+          from the database all the way up to polished interfaces.
+        </p>
+
+        <div className="hero-cta reveal d3">
+          <a className="btn btn-primary" href="#work">
+            See selected work <ArrowRight />
+          </a>
+          <a className="btn btn-ghost" href="#contact">Get in touch</a>
+          <a className="btn btn-ghost" href="https://github.com/russelrex" target="_blank" rel="noopener noreferrer">
+            GitHub <ArrowOut />
+          </a>
+        </div>
+
+        <div className="hero-stats reveal d4">
+          {stats.map((s) => (
+            <div className="stat" key={s.label}>
+              <div className="num">{s.value}</div>
+              <div className="lbl">{s.label.toUpperCase()}</div>
+            </div>
+          ))}
+        </div>
+
+        {badges.map((b) => (
+          <Badge key={b.label} {...b} />
+        ))}
+
       </div>
     </section>
   );

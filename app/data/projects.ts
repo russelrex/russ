@@ -152,6 +152,68 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
+    id: "fassadigital",
+    number: "03",
+    title: "FassaDigital",
+    description:
+      "A digital agency platform showcasing end-to-end web design and development services. Built and maintained client sites across multiple industries using Wix Studio, Velo, and custom integrations for Australian and international businesses.",
+    tech: ["Wix Studio", "Velo", "Node.js", "JavaScript"],
+    role: "Wix Developer",
+    year: "2025",
+    caseStudyHref: "https://www.fassadigital.com.au",
+    images: [
+      {
+        src: "/fassa.png",
+        alt: "FassaDigital agency platform",
+        caption: "Digital agency delivering web design and development across multiple industries.",
+        isReal: true,
+        aspectClass: "aspect-[16/9]",
+      },
+    ],
+  },
+  {
+    id: "suitespot",
+    number: "04",
+    title: "SuiteSpot",
+    description:
+      "An AI-powered platform for multifamily property maintenance and capital operations. Streamlined workflows across work orders, inspections, make-ready boards, and resident management • trusted by large operators to cut unit turn times by 50%.",
+    tech: ["Angular", "Node.js", "MongoDB", "Ionic", "RxJS"],
+    role: "Full-Stack Developer",
+    year: "2024",
+    caseStudyHref: "https://www.suitespot.ai",
+    images: [
+      {
+        src: "/suitespot.png",
+        alt: "SuiteSpot property maintenance platform",
+        caption:
+          "Work orders, inspections, make-ready boards, resident management, and reporting for multifamily operators.",
+        isReal: true,
+        aspectClass: "aspect-[16/9]",
+      },
+    ],
+  },
+  {
+    id: "leadprospectingai",
+    number: "05",
+    title: "LeadProspectingAI",
+    description:
+      "An AI-powered CRM and revenue growth platform combining lead discovery, email campaigns, social scheduling, AI receptionist, and SEO tools • replacing 8+ separate tools from $99/month. Includes Stripe billing, real-time chat via Ably, and GoHighLevel CRM sync.",
+    tech: ["Next.js", "MongoDB", "GoHighLevel", "Stripe", "Ably"],
+    role: "Full-Stack Developer",
+    year: "2024",
+    caseStudyHref: "https://www.leadprospecting.ai",
+    images: [
+      {
+        src: "/leadprospecting.png",
+        alt: "LeadProspectingAI CRM dashboard",
+        caption:
+          "All-in-one CRM with lead discovery, campaigns, scheduling, AI receptionist, and revenue tools.",
+        isReal: true,
+        aspectClass: "aspect-[16/9]",
+      },
+    ],
+  },
+  {
     id: "atraq",
     number: "07",
     title: "ATRAQ",

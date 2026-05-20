@@ -1,15 +1,16 @@
 import { siteConfig } from "@/app/data/config";
-import styles from "./Footer.module.css";
 
 export default function Footer() {
-  const year = new Date().getFullYear();
   return (
-    <footer className={styles.footer}>
-      <div className={styles.container}>
-        <p className={styles.copy}>
-          {`© ${year} ${siteConfig.name}. Built with care.`}
-        </p>
-        <p className={styles.location}>{siteConfig.location}</p>
+    <footer className="site-footer">
+      <div className="container">
+        <div className="foot">
+          <div>© 2026 Russel Rex · Built with care in the Philippines</div>
+          <div className="foot-links">
+            <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href={siteConfig.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
       </div>
     </footer>
   );
