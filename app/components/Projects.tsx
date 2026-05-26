@@ -4,7 +4,13 @@ import {
   FEATURED_PROJECTS,
   type FeaturedProjectDisplay,
 } from "@/app/data/featured";
-import { PROJECTS, type Project, type ProjectImage } from "@/app/data/projects";
+import {
+  PROJECTS,
+  type Project,
+  type ProjectCategory,
+  type ProjectImage,
+  type ProjectThumbFit,
+} from "@/app/data/projects";
 
 const ArrowOut = () => (
   <svg className="arrow" width="13" height="13" viewBox="0 0 14 14" fill="none">
@@ -272,13 +278,123 @@ function getProjectThumbnail(project: Project) {
 
 const featuredIdSet = new Set<string>(FEATURED_PROJECT_IDS);
 
-const MORE_PROJECTS = PROJECTS.filter((p) => !featuredIdSet.has(p.id)).sort(
-  (a, b) => {
-    const yearDiff = Number(b.year) - Number(a.year);
-    if (yearDiff !== 0) return yearDiff;
-    return (Number(b.number) || 0) - (Number(a.number) || 0);
-  },
-);
+function sortMoreProjects(a: Project, b: Project) {
+  const yearDiff = Number(b.year) - Number(a.year);
+  if (yearDiff !== 0) return yearDiff;
+  return (Number(b.number) || 0) - (Number(a.number) || 0);
+}
+
+const MORE_PROJECTS = PROJECTS.filter((p) => !featuredIdSet.has(p.id)).sort(sortMoreProjects);
+
+const MORE_CLIENT = MORE_PROJECTS.filter((p) => p.category !== "concept");
+const MORE_CONCEPTS = MORE_PROJECTS.filter((p) => p.category === "concept");
+
+const CATEGORY_LABEL: Record<ProjectCategory, string> = {
+  client: "Client work",
+  concept: "Design concept",
+};
+
+function resolveThumbFit(project: Project): ProjectThumbFit {
+  if (project.thumbFit) return project.thumbFit;
+  return project.category === "concept" ? "preview" : "logo";
+}
+
+function MoreWorkCard({ project }: { project: Project }) {
+  const thumb = getProjectThumbnail(project);
+  const thumbFit = resolveThumbFit(project);
+  const isExternal = project.caseStudyHref?.startsWith("http") ?? false;
+  const category = project.category ?? "client";
+
+  const card = (
+    <>
+      <div className={`more-work-thumb more-work-thumb--${thumbFit}`}>
+        {thumb ? (
+          <Image
+            src={thumb.src}
+            alt={thumb.alt}
+            width={1024}
+            height={528}
+            className="more-work-image"
+            style={{
+              objectFit: "contain",
+              objectPosition: thumbFit === "preview" ? "top center" : "center",
+            }}
+          />
+        ) : (
+          <span className="more-work-placeholder">{project.title}</span>
+        )}
+      </div>
+      <div className="more-work-body">
+        <div className="more-work-meta">
+          <span className="more-work-meta-left">
+            <span>{project.year}</span>
+            <span className={`more-work-category more-work-category--${category}`}>
+              {CATEGORY_LABEL[category]}
+            </span>
+          </span>
+          <span>{project.role}</span>
+        </div>
+        <h4 className="more-work-name">{project.title}</h4>
+        <p className="more-work-desc">{project.description}</p>
+        <div className="tags more-work-tags">
+          {project.tech.slice(0, 4).map((t) => (
+            <span className="chip chip-tag" key={t}>
+              {t}
+            </span>
+          ))}
+          {project.tech.length > 4 && (
+            <span className="chip chip-tag">+{project.tech.length - 4}</span>
+          )}
+        </div>
+        {project.caseStudyHref && (
+          <span className="more-work-link">
+            {category === "concept" ? "View concept" : "View project"} <ArrowOut />
+          </span>
+        )}
+      </div>
+    </>
+  );
+
+  if (project.caseStudyHref) {
+    return (
+      <a
+        className="card more-work-card reveal"
+        href={project.caseStudyHref}
+        {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      >
+        {card}
+      </a>
+    );
+  }
+
+  return <article className="card more-work-card reveal">{card}</article>;
+}
+
+function MoreWorkGroup({
+  title,
+  lede,
+  projects,
+}: {
+  title: string;
+  lede: string;
+  projects: Project[];
+}) {
+  if (projects.length === 0) return null;
+
+  return (
+    <div className="more-work-group">
+      <div className="more-work-group-head">
+        <h4 className="more-work-group-title">{title}</h4>
+        <p className="more-work-group-lede">{lede}</p>
+      </div>
+      <div className="more-work-grid">
+        {projects.map((project) => (
+          <MoreWorkCard key={project.id} project={project} />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function MoreWork() {
   if (MORE_PROJECTS.length === 0) return null;
@@ -290,77 +406,23 @@ function MoreWork() {
           <span className="dot" />
           More work
         </div>
-        <h3 className="more-work-title">Other shipped projects &amp; builds.</h3>
+        <h3 className="more-work-title">Beyond the featured four.</h3>
         <p className="lede more-work-lede">
-          Websites, platforms, and concepts from client work and experiments • each with a live preview or deployment.
+          Client builds and design explorations — each with a live preview or deployment.
         </p>
       </div>
 
-      <div className="more-work-grid">
-        {MORE_PROJECTS.map((project) => {
-          const thumb = getProjectThumbnail(project);
-          const isExternal =
-            project.caseStudyHref?.startsWith("http") ?? false;
+      <MoreWorkGroup
+        title="Shipped work"
+        lede="Production sites and products delivered for clients and teams."
+        projects={MORE_CLIENT}
+      />
 
-          const card = (
-            <>
-              <div className="more-work-thumb">
-                {thumb ? (
-                  <Image
-                    src={thumb.src}
-                    alt={thumb.alt}
-                    width={640}
-                    height={400}
-                    className="more-work-image"
-                  />
-                ) : (
-                  <span className="more-work-placeholder">{project.title}</span>
-                )}
-              </div>
-              <div className="more-work-body">
-                <div className="more-work-meta">
-                  <span>{project.year}</span>
-                  <span>{project.role}</span>
-                </div>
-                <h4 className="more-work-name">{project.title}</h4>
-                <p className="more-work-desc">{project.description}</p>
-                <div className="tags more-work-tags">
-                  {project.tech.slice(0, 4).map((t) => (
-                    <span className="chip chip-tag" key={t}>
-                      {t}
-                    </span>
-                  ))}
-                  {project.tech.length > 4 && (
-                    <span className="chip chip-tag">+{project.tech.length - 4}</span>
-                  )}
-                </div>
-                {project.caseStudyHref && (
-                  <span className="more-work-link">
-                    View project <ArrowOut />
-                  </span>
-                )}
-              </div>
-            </>
-          );
-
-          return project.caseStudyHref ? (
-            <a
-              key={project.id}
-              className="card more-work-card reveal"
-              href={project.caseStudyHref}
-              {...(isExternal
-                ? { target: "_blank", rel: "noopener noreferrer" }
-                : {})}
-            >
-              {card}
-            </a>
-          ) : (
-            <article key={project.id} className="card more-work-card reveal">
-              {card}
-            </article>
-          );
-        })}
-      </div>
+      <MoreWorkGroup
+        title="Design concepts"
+        lede="UI explorations, portfolio variants, and experimental layouts — separate from shipped client work."
+        projects={MORE_CONCEPTS}
+      />
     </div>
   );
 }

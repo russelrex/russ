@@ -6,6 +6,11 @@ export type ProjectImage = {
   aspectClass?: string;
 };
 
+export type ProjectCategory = "client" | "concept";
+
+/** How the More work card thumbnail should fit its frame */
+export type ProjectThumbFit = "logo" | "preview";
+
 export type Project = {
   id: string;
   number?: string;
@@ -14,6 +19,8 @@ export type Project = {
   tech: string[];
   role: string;
   year: string;
+  category?: ProjectCategory;
+  thumbFit?: ProjectThumbFit;
   caseStudyHref?: string;
   github?: string;
   images: ProjectImage[];
@@ -302,6 +309,7 @@ export const PROJECTS: Project[] = [
     tech: ["Next.js", "Material UI", "Tailwind CSS", "Redux", "Node.js", "MongoDB"],
     role: "Full-Stack Developer",
     year: "2024",
+    thumbFit: "preview",
     caseStudyHref: "https://main.d1b9ywoz7johau.amplifyapp.com/",
     images: [
       {
@@ -322,6 +330,7 @@ export const PROJECTS: Project[] = [
     tech: ["Next.js", "Material UI", "Tailwind CSS", "Redux", "Node.js", "MongoDB"],
     role: "Full-Stack Developer",
     year: "2024",
+    thumbFit: "preview",
     caseStudyHref: "https://home.navqms.com/",
     images: [
       {
@@ -336,11 +345,13 @@ export const PROJECTS: Project[] = [
   {
     id: "cafe-v1",
     number: "14",
-    title: "Cafe Concept V1",
+    title: "Cafe V1",
     description: "Cafe website concept with dark editorial style and interactive ordering flow.",
     tech: ["HTML", "CSS", "JavaScript"],
     role: "Frontend Engineer",
     year: "2026",
+    category: "concept",
+    thumbFit: "preview",
     caseStudyHref: "/concepts/cafe/cafe_v1.html",
     images: [
       {
@@ -355,11 +366,13 @@ export const PROJECTS: Project[] = [
   {
     id: "cafe-v2",
     number: "15",
-    title: "Cafe Concept V2",
+    title: "Cafe V2",
     description: "Cafe website concept with refined editorial visuals and menu interactions.",
     tech: ["HTML", "CSS", "JavaScript"],
     role: "Frontend Engineer",
     year: "2026",
+    category: "concept",
+    thumbFit: "preview",
     caseStudyHref: "/concepts/cafe/cafe_v2.html",
     images: [
       {
@@ -374,11 +387,13 @@ export const PROJECTS: Project[] = [
   {
     id: "version-01",
     number: "11",
-    title: "Version 01",
-    description: "Landing page portfolio variant deployment.",
+    title: "Portfolio V1",
+    description: "Landing page portfolio variant — design exploration deployed to Netlify.",
     tech: ["Next.js"],
     role: "Full-Stack Developer",
     year: "2026",
+    category: "concept",
+    thumbFit: "preview",
     caseStudyHref: "https://velvety-cannoli-7a283d.netlify.app/",
     images: [
       {
@@ -393,11 +408,13 @@ export const PROJECTS: Project[] = [
   {
     id: "version-02",
     number: "12",
-    title: "Version 02",
-    description: "Alternative web design portfolio deployment.",
+    title: "Portfolio V2",
+    description: "Alternative portfolio layout and visual system — live deployment.",
     tech: ["Next.js"],
     role: "Full-Stack Developer",
     year: "2026",
+    category: "concept",
+    thumbFit: "preview",
     caseStudyHref: "https://singular-pixie-dbf641.netlify.app/",
     images: [
       {
@@ -412,11 +429,13 @@ export const PROJECTS: Project[] = [
   {
     id: "version-03",
     number: "13",
-    title: "Version 03",
-    description: "Latest web design portfolio variant deployment.",
+    title: "Portfolio V3",
+    description: "Latest portfolio variant — layout, typography, and motion study.",
     tech: ["Next.js"],
     role: "Full-Stack Developer",
     year: "2026",
+    category: "concept",
+    thumbFit: "preview",
     caseStudyHref: "https://thunderous-figolla-3b814b.netlify.app/",
     images: [
       {
